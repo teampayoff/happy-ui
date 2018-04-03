@@ -1,0 +1,89 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+@import "mixins";
+
+// Headings
+
+h1, .h1,
+h3, .h3 {
+  letter-spacing: -0.02em;
+}
+
+h1, .h1,
+h3, .h3,
+h6, .h6 {
+  text-transform: uppercase;
+}
+
+h2, .h2,
+h4, .h4,
+h5, .h5 {
+  font-family: $font-family-sans-serif;
+}
+
+h6, .h6 {
+  margin-bottom: $headings-margin-bottom * 2;
+}
+
+h4, .h4,
+h5, .h5 {
+  font-weight: bold;
+}
+
+h6, .h6 {
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+
+// Links
+
+a {
+  transition: color $duration-short;
+}
+
+
+// Bold
+//
+// Revert style set in reboot.scss
+b,
+strong {
+  font-weight: 700 !important;
+}
+
+
+// Horizontal rules
+
+hr {
+  border-top: $hr-border-width dashed $hr-border-color;
+}
+
+
+// Highlights
+.hl {
+  @include highlight();
+  padding: 0 0.1em;
+  margin: 0 -0.1em;
+}
+
+.hl-ul {
+  @include highlight-underline();
+}
+
+
+@include media-breakpoint-up(md) {
+  // Bump up headings for desktop
+  h1, .h1 { font-size: 2.5rem; }
+  h2, .h2 { font-size: 1.75rem; }
+  h3, .h3 { font-size: 1.625rem; }
+  h4, .h4 { font-size: 1.375rem; }
+
+  p { margin-bottom: $paragraph-margin-bottom * 1.2; }
+
+  .lead { font-size: $lead-font-size * 1.1; }
+
+  hr {
+    margin: ceil($hr-margin-y * 1.33) 0; // ~40px
+  }
+}

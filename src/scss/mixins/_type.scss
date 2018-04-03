@@ -1,0 +1,17 @@
+@import "src/scss/variables";
+@import "node_modules/bootstrap/scss/variables";
+
+// Add a highlight
+
+@mixin highlight($color: $yellow) {
+  background-image: linear-gradient(180deg, transparent 0%, $color 0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+@mixin highlight-underline($color: $yellow) {
+  background-image: linear-gradient(180deg, transparent 0%, $color 0);
+  background-size: 100% 12%;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}

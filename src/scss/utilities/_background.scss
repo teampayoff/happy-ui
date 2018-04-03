@@ -1,0 +1,9 @@
+@import "src/scss/variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/functions";
+
+
+// Spin up custom, lighter background colors
+@each $color, $value in $theme-colors {
+  @include bg-variant(".bg-#{$color}", theme-color-level($color, $alert-bg-level));
+}

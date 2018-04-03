@@ -1,0 +1,32 @@
+// Component Styles
+//
+// Styles for custom react components should be added to this file.
+// TBD as to whether this will be broken out into separate files.
+
+// CheckList
+
+.component--checklist {
+  li:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+// ScrollGroup
+
+.component--scrollgroup {
+  &.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &.scroll-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .btn-group-toggle {
+    .btn {
+      position: relative;
+    }
+  }
+}

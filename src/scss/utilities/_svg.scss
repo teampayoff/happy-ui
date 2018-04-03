@@ -1,0 +1,15 @@
+@import "src/scss/variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/functions";
+
+
+@mixin svg-variant($parent, $color) {
+  #{$parent} {
+    fill: $color !important;
+  }
+}
+
+// Helper functions for coloring svg paths
+@each $color, $value in $colors {
+  @include svg-variant(".svg-#{$color}", $value);
+}

@@ -1,0 +1,8 @@
+// Custom variables go first
+@import "variables";
+
+// ...then Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// ...then Bootstrap overrides
+@import "bootstrap-payoff";

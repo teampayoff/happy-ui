@@ -1,0 +1,26 @@
+@import "variables";
+
+// Import dependency styles
+// @import "~slick-carousel/slick/slick.css";
+// @import "~slick-carousel/slick/slick-theme.css";
+
+// Carousel
+
+// Need to add this to work with flex items
+.slick-slider,
+.slick-slider * {
+  min-height: 0;
+  min-width: 0;
+}
+
+.slick-slider {
+  .slick-dots {
+    position: static;
+  }
+}
+
+// reduce space between columns in slider
+.slick-track > [class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px;
+}

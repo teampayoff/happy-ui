@@ -1,0 +1,59 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+
+// Navbar
+
+.nav-link {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.075rem;
+  transition: all $duration-short;
+}
+
+// Fixed, full-height nav on mobile
+
+@include media-breakpoint-down(md) {
+  // navbar height - should figure a more reliable way to calc this
+  $navbar-height: 4.6875rem;
+  $navbar-offset: $navbar-height + ($spacer * 1.5);
+
+  // body class to add top padding that offsets fixed nav
+  // prevents scrolling when nav is open
+  .navbar-open {
+    overflow: hidden;
+    padding-top: $navbar-offset;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .navbar-light,
+  .navbar-light .navbar-nav {
+    background-color: white;
+  }
+
+  // position the fixed nav
+  .navbar-collapse {
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    z-index: $zindex-fixed;
+  }
+
+  // set nav to full-height minus the navbar
+  .navbar-nav {
+    height: calc(100vh - #{$navbar-height});
+    justify-content: center;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  // bump up the link size
+  .nav-link {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+}

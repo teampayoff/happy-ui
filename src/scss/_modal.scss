@@ -1,0 +1,64 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+
+// Modal
+
+.modal-content {
+  @include border-radius($border-radius);
+}
+
+.modal-header {
+  .close {
+    margin-bottom: 0;
+  }
+
+  // Icons
+  .fa-stack {
+    :nth-child(1) {
+      color: $white;
+      text-shadow: $shadow-level-1;
+    }
+
+    :nth-child(2) {
+      color: lighten($blue, 35%);
+    }
+
+    :nth-child(3) {
+      color: $dark-blue;
+    }
+  }
+}
+
+// position the close button on top of the image header
+.modal-image-header {
+  overflow: hidden;
+
+  .close {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.modal-body {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.modal-footer {
+  .btn-block {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 2.5rem; // ~30px
+  }
+}

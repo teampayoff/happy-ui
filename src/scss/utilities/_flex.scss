@@ -1,0 +1,14 @@
+@import "node_modules/bootstrap/scss/variables";
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}-grow           { flex-grow: 1 !important; }
+    .flex#{$infix}-shrink         { flex-shrink: 1 !important; }
+  }
+}

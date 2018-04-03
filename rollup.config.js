@@ -1,5 +1,10 @@
+import autoprefixer from 'autoprefixer'
+import sass from 'node-sass'
+
 import babel from 'rollup-plugin-babel'
+import clean from 'postcss-clean'
 import commonjs from 'rollup-plugin-commonjs'
+import copy from 'rollup-plugin-copy'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
@@ -21,8 +26,18 @@ export default {
   ],
   plugins: [
     external(),
+    copy({
+      'src/fonts': 'dist/fonts'
+    }),
     postcss({
-      modules: true
+      preprocessor: (content, id) => new Promise((resolve, reject) => {
+        const result = sass.renderSync({ file: id })
+        resolve({ code: result.css.toString() })
+      }),
+      plugins: [autoprefixer, clean],
+      sourceMap: true,
+      extract: 'dist/css/bundle.min.css',
+      extensions: ['.sass', '.scss', '.css']
     }),
     url(),
     babel({

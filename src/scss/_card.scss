@@ -1,0 +1,15 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Cards
+
+.card {
+  border: none;
+  box-shadow: $shadow-level-2;
+}
+
+@include media-breakpoint-up(md) {
+  .card-body {
+    padding: $card-spacer-x * 1.5;
+  }
+}

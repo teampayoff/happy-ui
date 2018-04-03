@@ -1,0 +1,39 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+@import "mixins/buttons";
+
+// Buttons
+
+.btn {
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+}
+
+// bump up line height on small buttons to match small inputs
+.btn-sm {
+  line-height: $font-size-base * $line-height-base; // ~24px
+}
+
+// shrink font size on large buttons
+.btn-lg {
+  font-size: $font-size-base;
+}
+
+// Button block class for mobile
+@include media-breakpoint-only(xs) {
+  .btn-xs-block {
+    display: block;
+    width: 100%;
+
+    + .btn-xs-block {
+      margin-top: $btn-block-spacing-y;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  // Allow extra padding on buttons for desktop
+  .btn-wide { @include button-padding-x($input-btn-padding-x, 5); }
+  .btn-sm.btn-wide { @include button-padding-x($input-btn-padding-x-sm, 4); }
+  .btn-lg.btn-wide { @include button-padding-x($input-btn-padding-x-lg, 6); }
+}

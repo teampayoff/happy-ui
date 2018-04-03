@@ -1,0 +1,7 @@
+// Custom form element styles
+
+.custom-control {
+  + .custom-control {
+    margin-top: 0.5rem;
+  }
+}

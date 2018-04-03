@@ -1,0 +1,21 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/variables";
+
+// Alerts
+
+.alert {
+  color: $body-color;
+
+  &:only-child,
+  &:last-of-type {
+    margin-bottom: $alert-margin-bottom * 4;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    .close svg path {
+      fill: $value;
+    }
+  }
+}

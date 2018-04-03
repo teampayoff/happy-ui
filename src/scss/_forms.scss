@@ -1,0 +1,145 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Forms
+
+.form-control {
+  font-size: $font-size-base * 1.125;
+  line-height: $font-size-base * $line-height-base; // ~24px
+}
+
+
+// Validation states
+@mixin form-validation-bg($state, $color, $percent) {
+  .form-control,
+  .custom-select {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      &:focus {
+        background-color: lighten($color, $percent);
+      }
+    }
+  }
+}
+
+@include form-validation-bg("valid", $green, 50%);
+@include form-validation-bg("invalid", $red, 38%);
+
+
+// Input sizes
+.form-control-sm {
+  font-size: $font-size-base;
+  line-height: $line-height-sm;
+}
+
+.form-control-lg {
+  font-size: $font-size-base * 1.5;
+  line-height: $line-height-lg;
+}
+
+.form-group {
+  label:not(.custom-control-label) {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    > span {
+      color: $text-muted;
+      text-transform: capitalize;
+
+      &:before {
+        content: " • ";
+      }
+    }
+  }
+
+  @include media-breakpoint-up("sm") {
+    margin-bottom: 1.5rem;
+  }
+
+  // Allow for inputs to sit flush against one another
+  .row.no-gutters {
+    [class^="col"] {
+      .form-control,
+      select.form-control {
+        position: relative;
+      }
+
+      // remove border radius on all but first and last child
+      &:not(:first-child):not(:last-child) {
+        .form-control,
+        select.form-control {
+          border-radius: 0;
+        }
+      }
+
+      // set z-index of active elements so active border shows all the way around
+      .form-control,
+      select.form-control {
+        &:focus {
+          z-index: $zindex-dropdown;
+        }
+      }
+    }
+
+    @include media-breakpoint-down("xs") {
+      [class^="col"] {
+        // prevent double borders
+        &:not(:first-child) {
+          margin-top: -1px;
+        }
+
+        &:first-child {
+          .form-control,
+          select.form-control {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:last-child {
+          .form-control,
+          select.form-control {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up("sm") {
+      [class^="col"] {
+        // prevent double borders
+        &:not(:first-child) {
+          margin-left: -1px;
+        }
+
+        &:first-child {
+          .form-control,
+          select.form-control {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &:last-child {
+          .form-control,
+          select.form-control {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-text {
+  font-size: $font-size-sm;
+  margin-top: 0.75rem;
+}
+
+.invalid-feedback {
+  font-weight: $font-weight-bold;
+}

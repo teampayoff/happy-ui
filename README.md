@@ -28,4 +28,4 @@ class Example extends Component {
 
 ## License
 
-MIT © [bartonwelt](https://github.com/bartonwelt)
+MIT © [happymoney](https://stash.int.payoff.com/projects/FE/repos/happy-ui/browse)

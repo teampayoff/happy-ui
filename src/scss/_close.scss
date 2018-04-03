@@ -1,0 +1,15 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/mixins/hover";
+
+// Close
+
+.close {
+  &.close-inverted {
+    color: $white;
+
+    @include hover-focus {
+      color: $white;
+      opacity: .75;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "src/scss/variables";
+@import "node_modules/bootstrap/scss/variables";
+
+// Buttons
+
+// Add more padding to a button
+@mixin button-padding-x($padding, $modifier) {
+  padding-left: $padding * $modifier;
+  padding-right: $padding * $modifier;
+}
