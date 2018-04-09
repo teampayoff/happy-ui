@@ -144,7 +144,7 @@ $font-weight-bold: 700;
 $line-height-base:            1.5;
 
 $h1-font-size:                $font-size-base * 2; // ~32px
-$h2-font-size:                $font-size-base * 1.625; // ~26px
+$h2-font-size:                $font-size-base * 1.75; // ~28px
 $h3-font-size:                $font-size-base * 1.5; // ~24px
 $h4-font-size:                $font-size-base * 1.25; // ~20px
 $h5-font-size:                $font-size-base * 1.125; // ~18px
@@ -154,6 +154,16 @@ $headings-margin-bottom:      0.5em;
 $headings-font-family:        "Trade Gothic", $font-family-sans-serif;
 $headings-font-weight:        400;
 $headings-line-height:        1.2;
+
+$display1-size:               $h1-font-size * 1.125;
+$display2-size:               $h1-font-size * 1.125;
+$display3-size:               $h1-font-size * 1.125;
+$display4-size:               $h1-font-size * 1.125;
+
+$display1-weight:             $headings-font-weight;
+$display2-weight:             $headings-font-weight;
+$display3-weight:             $headings-font-weight;
+$display4-weight:             $headings-font-weight;
 
 $small-font-size: $font-size-sm;
 

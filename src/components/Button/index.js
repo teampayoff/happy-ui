@@ -17,10 +17,12 @@ const Button = (props) => {
     block,
     children,
     className,
+    disabled,
     hasIcon,
     iconProps,
     iconRight,
     id,
+    isLoading,
     outline,
     size,
     type,
@@ -49,11 +51,22 @@ const Button = (props) => {
     <button
       id={id}
       className={classes}
+      disabled={disabled || isLoading}
       aria-pressed={active}
       {...other}>
-      {hasIcon && !iconRight && btnIcon}
-      {children}
-      {hasIcon && iconRight && btnIcon}
+      {isLoading ?
+        <Icon
+          family="fas"
+          icon="spinner-third"
+          size="lg"
+          spin />
+      :
+        <span>
+          {hasIcon && !iconRight && btnIcon}
+          {children}
+          {hasIcon && iconRight && btnIcon}
+        </span>
+      }
     </button>
   )
 }

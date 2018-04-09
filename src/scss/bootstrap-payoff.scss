@@ -3,10 +3,10 @@
 // Payoff specific overrides to the Bootstrap core files.
 
 // FontAwesome 5.0
-// @import "fontawesome/fa-brands";
-// @import "fontawesome/fa-light";
-// @import "fontawesome/fa-solid";
-// @import "fontawesome/fontawesome";
+@import "fontawesome/fa-brands";
+@import "fontawesome/fa-light";
+@import "fontawesome/fa-solid";
+@import "fontawesome/fontawesome";
 
 // Framework
 @import "mixins";
@@ -14,7 +14,6 @@
 @import "buttons";
 @import "button_group";
 @import "card";
-@import "carousel";
 @import "close";
 @import "components";
 @import "custom-forms";

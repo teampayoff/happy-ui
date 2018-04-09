@@ -2,12 +2,10 @@
 
 > Shared UI components for building Happy Money products.
 
-[![NPM](https://img.shields.io/npm/v/happy-ui.svg)](https://www.npmjs.com/package/happy-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
 
 ```bash
-npm install --save happy-ui
+npm install --save git+ssh://git@stash.int.payoff.com:7999/fe/happy-ui.git
 ```
 
 ## Usage
@@ -15,12 +13,12 @@ npm install --save happy-ui
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'happy-ui'
+import { Button } from 'happy-ui'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <Button />
     )
   }
 }
@@ -28,4 +26,4 @@ class Example extends Component {
 
 ## License
 
-MIT © [happymoney](https://stash.int.payoff.com/projects/FE/repos/happy-ui/browse)
+MIT © [Happy Money](https://www.happymoney.com/)

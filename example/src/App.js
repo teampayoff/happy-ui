@@ -5,8 +5,8 @@ import { Button } from 'happy-ui'
 export default class App extends Component {
   render () {
     return (
-      <div>
-        <Button>Continue</Button>
+      <div id="app-root" className="d-flex align-items-center justify-content-center">
+        <Button disabled>Continue</Button>
       </div>
     )
   }

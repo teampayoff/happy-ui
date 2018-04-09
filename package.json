@@ -24,6 +24,7 @@
     "test": "CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
+    "prestart": "rm -rf dist",
     "start": "rollup -c -w",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
@@ -57,7 +58,7 @@
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-collect-sass": "^1.0.9",
     "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-copy-assets": "^1.0.0",
+    "rollup-plugin-copied": "0.0.1",
     "rollup-plugin-includepaths": "^0.2.2",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.0.0",
@@ -68,5 +69,6 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {}
 }

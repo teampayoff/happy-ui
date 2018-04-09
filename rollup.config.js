@@ -4,7 +4,7 @@ import sass from 'node-sass'
 import babel from 'rollup-plugin-babel'
 import clean from 'postcss-clean'
 import commonjs from 'rollup-plugin-commonjs'
-import copy from 'rollup-plugin-copy-assets'
+import copy from 'rollup-plugin-copied'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
@@ -26,24 +26,20 @@ export default {
   ],
   plugins: [
     external(),
-    copy({
-      assets: ['./src/fonts']
-    }),
     postcss({
-      preprocessor: (content, id) => new Promise((resolve, reject) => {
-        const result = sass.renderSync({ file: id })
-        resolve({ code: result.css.toString() })
-      }),
       plugins: [autoprefixer, clean],
       sourceMap: true,
-      extract: 'dist/css/bundle.min.css',
-      extensions: ['.sass', '.scss', '.css']
+      extract: 'dist/css/bundle.min.css'
     }),
     url(),
     babel({
       exclude: 'node_modules/**'
     }),
     resolve(),
-    commonjs()
+    commonjs(),
+    copy({
+      from: './src/fonts',
+      to: './dist/fonts'
+    })
   ]
 }

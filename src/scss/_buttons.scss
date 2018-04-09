@@ -7,6 +7,14 @@
 .btn {
   letter-spacing: 0.075rem;
   text-transform: uppercase;
+
+  &.disabled,
+  &:disabled {
+    background-color: $gray-200;
+    border-color: $gray-200;
+    color: $white;
+    cursor: not-allowed;
+  }
 }
 
 // bump up line height on small buttons to match small inputs
