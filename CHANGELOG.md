@@ -1,3 +1,14 @@
+# 1.2.0 - 2018-04-16
+
+### Added
+* rollup-scss
+* click handler on Button component
+* maskProps on Input component
+
+### Removed
+* postcss, autoprefixer, clean-css, node-sass
+* old props from Input component
+
 # 1.1.0 - 2018-04-09
 
 ### Added

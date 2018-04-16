@@ -2,7 +2,7 @@
 @import "variables";
 
 // ...then Bootstrap
-@import "~bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 // ...then Bootstrap overrides
 @import "bootstrap-payoff";

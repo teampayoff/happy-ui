@@ -23,7 +23,9 @@ const Button = (props) => {
     iconRight,
     id,
     isLoading,
+    onClick,
     outline,
+    preventDefault,
     size,
     type,
     ...other
@@ -47,11 +49,25 @@ const Button = (props) => {
       {...iconProps} />
   )
 
+  // Click handler
+  function handleOnClick(e) {
+    if(disabled) {
+      e.preventDefault()
+      return
+    } else if(preventDefault) {
+      e.preventDefault()
+      onClick(e)
+    } else {
+      onClick(e)
+    }
+  }
+
   return (
     <button
       id={id}
       className={classes}
       disabled={disabled || isLoading}
+      onClick={(e) => handleOnClick(e)}
       aria-pressed={active}
       {...other}>
       {isLoading ?
@@ -78,6 +94,7 @@ Button.propTypes = {
   iconProps: PropTypes.object,
   id: PropTypes.string,
   outline: PropTypes.bool,
+  onClick: PropTypes.func,
   size: PropTypes.oneOf(["sm", "lg"]),
   type: PropTypes.string
 }

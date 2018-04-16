@@ -29,10 +29,10 @@ export default class Input extends Component {
       disabled,
       hideLabel,
       id,
-      isFocused,
       label,
       labelAction,
       labelProps,
+      maskProps,
       placeholder,
       required,
       size,
@@ -49,12 +49,16 @@ export default class Input extends Component {
     const inputMasks = {
       currency: {
         guide: false,
-        mask: numberMask({allowDecimal: true}),
+        mask: numberMask({
+          allowDecimal: true,
+          integerLimit: 7
+        }),
         placeholder: "$0.00"
       },
       email: {
         guide: false,
         mask: emailMask,
+        maxLength: 100,
         placeholder: "name@website.com"
       },
       tel: {
@@ -74,7 +78,7 @@ export default class Input extends Component {
     }
 
     // returns a mask object or undefined
-    const mask = inputMasks[type]
+    const mask = inputMasks[type] || maskProps
 
     const inputLabel = (
       <div className="d-flex justify-content-between">
@@ -94,13 +98,14 @@ export default class Input extends Component {
         <div className={className}>
           {inputLabel}
           <MaskedInput
-            guide={mask.guide}
             id={id}
-            mask={mask.mask}
             name={id}
             className={classes}
-            placeholder={placeholder || mask.placeholder}
             disabled={disabled}
+            guide={mask.guide}
+            mask={mask.mask}
+            maxLength={mask.maxLength}
+            placeholder={placeholder || mask.placeholder}
             required={required}
             ref={(input) => {this.input = input}}
             {...other} />
@@ -115,8 +120,9 @@ export default class Input extends Component {
             name={id}
             type={type}
             className={classes}
-            placeholder={placeholder}
             disabled={disabled}
+            maxLength={70}
+            placeholder={placeholder}
             required={required}
             ref={(input) => {this.input = input}}
             {...other} />
@@ -132,8 +138,9 @@ Input.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   labelAction: PropTypes.element,
+  labelProps: PropTypes.object,
+  maskProps: PropTypes.object,
   placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
   required: PropTypes.bool,
   size: PropTypes.oneOf(["sm", "lg"]),
   type: PropTypes.string
