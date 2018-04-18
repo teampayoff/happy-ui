@@ -1,3 +1,8 @@
+# 1.2.1 - 2018-04-18
+
+### Added
+* href check on button to switch tag to anchor
+
 # 1.2.0 - 2018-04-16
 
 ### Added

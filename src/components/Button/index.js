@@ -27,6 +27,7 @@ const Button = (props) => {
     outline,
     preventDefault,
     size,
+    tag,
     type,
     ...other
   } = props
@@ -62,8 +63,11 @@ const Button = (props) => {
     }
   }
 
+  // set tag to anchor if there's an href
+  const Tag = other.href ? "a" : "button"
+
   return (
-    <button
+    <Tag
       id={id}
       className={classes}
       disabled={disabled || isLoading}
@@ -83,7 +87,7 @@ const Button = (props) => {
           {hasIcon && iconRight && btnIcon}
         </span>
       }
-    </button>
+    </Tag>
   )
 }
 
@@ -96,11 +100,13 @@ Button.propTypes = {
   outline: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["sm", "lg"]),
+  tag: PropTypes.oneOf(["a", "button"]),
   type: PropTypes.string
 }
 
 Button.defaultProps = {
   children: "Continue",
+  tag: "button",
   type: "primary"
 }
 
