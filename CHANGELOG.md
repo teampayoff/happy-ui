@@ -1,3 +1,8 @@
+# 1.2.2 - 2018-04-24
+
+### Added
+* serif font and helper class
+
 # 1.2.1 - 2018-04-18
 
 ### Added

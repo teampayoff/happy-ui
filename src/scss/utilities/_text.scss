@@ -1,12 +1,15 @@
+@import "node_modules/bootstrap/scss/variables";
 
 // Text utilities
 //
 // Extend bootstrap and add some helper classes
 
-.strikethrough {
-  text-decoration: line-through !important;
-}
+// font family
+.font-family-serif { font-family: $font-family-serif; }
+.font-family-sans-serif { font-family: $font-family-sans-serif; }
 
-.cursor-pointer {
-  cursor: pointer;
-}
+// styles
+.strikethrough { text-decoration: line-through !important; }
+
+// cursors
+.cursor-pointer { cursor: pointer; }
