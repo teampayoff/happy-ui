@@ -1,3 +1,8 @@
+# 1.2.4 - 2018-04-25
+
+### Added
+* navbar-mobile class to allow full height mobile nav style on desktop
+
 # 1.2.3 - 2018-04-24
 
 ### Added
