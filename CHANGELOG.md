@@ -1,3 +1,8 @@
+# 1.2.3 - 2018-04-24
+
+### Added
+* add ability to override default link text if a type is set
+
 # 1.2.2 - 2018-04-24
 
 ### Added

@@ -25,7 +25,7 @@ const Link = (props) => {
   } = props
 
   const classes = classNames(
-    !href && "cursor-pointer",
+    (!href && !type) && "cursor-pointer",
     className
   )
 
@@ -42,7 +42,7 @@ const Link = (props) => {
       tabIndex="-1"
       target={href && target}
       {...other}>
-      {link ? link.title : children}
+      {children || link && link.title}
     </a>
   )
 }
