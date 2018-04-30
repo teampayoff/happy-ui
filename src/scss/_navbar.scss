@@ -4,38 +4,67 @@
 
 // Navbar
 
-.nav-link {
-  font-size: $font-size-sm;
-  text-transform: uppercase;
-  letter-spacing: 0.075rem;
-  transition: all $duration-short;
+.navbar {
+  transition: background-color $duration-short;
 }
 
-// Fixed, full-height nav
-@mixin mobile-nav-menu($navbar-height: 4.675rem) {
-  // navbar height - should figure a more reliable way to calc this
-  $navbar-offset: $navbar-height + ($spacer * 1.5);
+// Nav links
+.nav-link {
+  font-family: $headings-font-family;
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+}
 
-  // body class to add top padding that offsets fixed nav
-  // prevents scrolling when nav is open
-  .navbar-open {
-    overflow: hidden;
-    padding-top: $navbar-offset;
+// bump up link size for mobile-style navs
+@mixin mobile-nav-links() {
+  .nav-link {
+    display: inline-block;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-lg * 1.5;
+    }
+  }
+}
+
+// Navbar themes
+//
+// Light and dark styles
+
+.navbar-light {
+  .navbar-toggler {
+    color: $link-color;
+  }
+}
+
+// Navbar variations
+//
+// Custom navigation styles
+
+// apply this to the body to prevent scrolling when nav is open
+.navbar-open { overflow: hidden; }
+
+// wrap top-level nav items like logo and toggler in this so they show on top of the expanded menu
+.navbar-controls {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  position: relative;
+  z-index: $zindex-fixed + 1;
+}
+
+// Full-height navbar
+@mixin navbar-full-height() {
+  &.navbar-light {
+    .navbar-collapse {
+      background-color: $white;
+    }
   }
 
-  .navbar {
-    position: relative;
-  }
-
-  .navbar-light,
-  .navbar-light .navbar-nav {
-    background-color: white;
-  }
-
-  // position the fixed nav
   .navbar-collapse {
     position: absolute;
-    top: $navbar-height;
+    top: 0;
     left: 0;
     right: 0;
     z-index: $zindex-fixed;
@@ -43,25 +72,20 @@
 
   // set nav to full-height minus the navbar
   .navbar-nav {
-    height: calc(100vh - #{$navbar-height});
+    height: 100vh;
     justify-content: center;
-    padding: 2rem 0;
     text-align: center;
   }
 
-  // bump up the link size
-  .nav-link {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-  }
+  @include mobile-nav-links();
 }
 
-// allow for full-height mobile style nav on desktop also
-.navbar-mobile {
-  @include mobile-nav-menu;
+// allow full height nav to be applied by class
+.navbar-full-height {
+  @include navbar-full-height();
 }
 
 // default display for mobile nav
 @include media-breakpoint-down(md) {
-  @include mobile-nav-menu;
+  @include navbar-full-height();
 }

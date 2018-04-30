@@ -1,6 +1,6 @@
 {
   "name": "happy-ui",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Shared UI components for building Happy Money products.",
   "contributors": [
     {
@@ -61,6 +61,7 @@
     "text-mask-addons": "^3.7.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/scss"
   ]
 }
