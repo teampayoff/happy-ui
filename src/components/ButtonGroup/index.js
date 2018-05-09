@@ -1,23 +1,22 @@
-/*
- * Button Group
- * Group a series of buttons together on a single line
- */
+//
+// Button Group
+// Group a series of buttons together on a single line
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
+// component
 const ButtonGroup = (props) => {
 
   const {
     ariaLabel,
     children,
     className,
-    id,
     size,
     type,
-    ...other
+    ...attributes
   } = props
 
   const groupType = {
@@ -26,7 +25,7 @@ const ButtonGroup = (props) => {
     toolbar: "btn-toolbar"
   }
 
-  const classes = classNames(
+  const classes = cx(
     groupType[type],
     size && "btn-group-" + size,
     props.className
@@ -34,12 +33,11 @@ const ButtonGroup = (props) => {
 
   return (
     <div
-      id={id}
       className={classes}
       role={type == "toolbar" ? "toolbar" : "group"}
       aria-label={ariaLabel}
       data-toggle={type == "toggle" && "buttons"}
-      {...other}>
+      {...attributes}>
       {children}
     </div>
   )
@@ -47,7 +45,6 @@ const ButtonGroup = (props) => {
 
 ButtonGroup.propTypes = {
   ariaLabel: PropTypes.string,
-  id: PropTypes.string,
   size: PropTypes.oneOf(["sm", "lg"]),
   type: PropTypes.oneOf(["group", "toggle", "toolbar"]),
 }

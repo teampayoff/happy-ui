@@ -1,15 +1,14 @@
-/*
- * Radio
- * Custom radio button element
- */
+//
+// Radio
+// Custom radio button element
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Label from "components/Label"
 
-import Label from 'components/Label'
-
-
+// component
 const Radio = (props) => {
 
   const {
@@ -22,10 +21,10 @@ const Radio = (props) => {
     id,
     labelProps,
     required,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "custom-control custom-radio",
     className
   )
@@ -40,7 +39,7 @@ const Radio = (props) => {
         disabled={disabled}
         name={group}
         required={required}
-        {...other} />
+        {...attributes} />
       <Label className="custom-control-label" hidden={hideLabel} htmlFor={id} {...labelProps}>
         {children}
       </Label>
@@ -56,6 +55,10 @@ Radio.propTypes = {
   id: PropTypes.string,
   labelProps: PropTypes.object,
   required: PropTypes.bool
+}
+
+Radio.defaultProps = {
+  id: "radio"
 }
 
 export default Radio

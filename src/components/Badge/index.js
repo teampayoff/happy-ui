@@ -1,25 +1,24 @@
-/*
- * Badge
- * Display feedback in various styles
- */
+//
+// Badge
+// Display a status or notification
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const Badge = (props) => {
+// component
+const Badge = props => {
 
   const {
     children,
     className,
-    id,
     pill,
     type,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "badge",
     "badge-" + type,
     pill && "badge-pill",
@@ -27,16 +26,15 @@ const Badge = (props) => {
   )
 
   return (
-    <span id={id} className={classes} {...other}>
+    <span className={classes} {...attributes}>
       {children}
     </span>
   )
 }
 
 Badge.propTypes = {
-  id: PropTypes.string,
   pill: PropTypes.bool,
-  type: PropTypes.oneOf(['success', 'danger', 'warning', 'info'])
+  type: PropTypes.oneOf(["success", "danger", "warning", "info"])
 }
 
 Badge.defaultProps = {

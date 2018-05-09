@@ -1,21 +1,20 @@
-/*
- * Input
- * Create different types of inputs with or without masking
- */
+//
+// Input
+// Create different types of inputs with or without masking
+//
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import MaskedInput from 'react-text-mask'
-import classNames from 'classnames'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import MaskedInput from "react-text-mask"
+import cx from "classnames"
+import Label from "components/Label"
 
-import Label from 'components/Label'
+// addons
+import emailMask from "text-mask-addons/dist/emailMask"
+import numberMask from "text-mask-addons/dist/createNumberMask"
 
-// Addons
-import emailMask from 'text-mask-addons/dist/emailMask'
-import numberMask from 'text-mask-addons/dist/createNumberMask'
-
-
-export default class Input extends Component {
+// component
+class Input extends Component {
 
   // trigger focus on the input field
   focusInput = () => {
@@ -37,10 +36,10 @@ export default class Input extends Component {
       required,
       size,
       type,
-      ...other
+      ...attributes
     } = this.props
 
-    const classes = classNames(
+    const classes = cx(
       "form-control",
       size && "form-control-" + size
     )
@@ -63,12 +62,12 @@ export default class Input extends Component {
       },
       tel: {
         guide: true,
-        mask: ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        mask: ["(", /[1-9]/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/],
         placeholder: "(___) ___-____"
       },
       ssn: {
         guide: true,
-        mask: [/\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        mask: [/\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/],
         placeholder: "___-__-____"
       },
       zip: {
@@ -108,7 +107,7 @@ export default class Input extends Component {
             placeholder={placeholder || mask.placeholder}
             required={required}
             ref={(input) => {this.input = input}}
-            {...other} />
+            {...attributes} />
         </div>
       )
     } else {
@@ -125,7 +124,7 @@ export default class Input extends Component {
             placeholder={placeholder}
             required={required}
             ref={(input) => {this.input = input}}
-            {...other} />
+            {...attributes} />
         </div>
       )
     }
@@ -147,5 +146,8 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
+  id: "input",
   type: "text"
 }
+
+export default Input

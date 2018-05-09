@@ -1,16 +1,15 @@
-/*
- * FormGroup
- * Wrapper for form elements
- */
+//
+// FormGroup
+// Wrapper for form elements
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Label from "components/Label"
 
-import Label from 'components/Label'
-
-
-const FormGroup = (props) => {
+// component
+const FormGroup = props => {
 
   const {
     check,
@@ -21,10 +20,10 @@ const FormGroup = (props) => {
     labelProps,
     row,
     stacked,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "form-group", {
       "mt-4": check,
       "row": row,
@@ -34,8 +33,8 @@ const FormGroup = (props) => {
   )
 
   return (
-    <div className={classes} id={id} {...other}>
-      {label && <Label {...labelProps}>{label}</Label>}
+    <div id={id} className={classes} {...attributes}>
+      {label && <Label htmlFor={id} {...labelProps}>{label}</Label>}
       {children}
     </div>
   )
@@ -48,6 +47,10 @@ FormGroup.propTypes = {
   labelProps: PropTypes.object,
   row: PropTypes.bool,
   stacked: PropTypes.bool
+}
+
+FormGroup.defaultProps = {
+  id: "group"
 }
 
 export default FormGroup

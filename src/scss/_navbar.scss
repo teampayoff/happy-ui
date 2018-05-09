@@ -17,13 +17,15 @@
 
 // bump up link size for mobile-style navs
 @mixin mobile-nav-links() {
-  .nav-link {
-    display: inline-block;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+  .navbar {
+    .nav-link {
+      display: inline-block;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
 
-    @include media-breakpoint-up(md) {
-      font-size: $font-size-lg * 1.5;
+      @include media-breakpoint-up(md) {
+        font-size: $font-size-lg * 1.5;
+      }
     }
   }
 }

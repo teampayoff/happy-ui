@@ -1,16 +1,15 @@
-/*
- * Button
- * Create a button with many styles
- */
+//
+// Button
+// Generate a clickable button or link element
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Icon from "@fortawesome/react-fontawesome"
 
-import Icon from 'components/Icon'
-
-
-const Button = (props) => {
+// component
+const Button = props => {
 
   const {
     active,
@@ -21,7 +20,6 @@ const Button = (props) => {
     hasIcon,
     iconProps,
     iconRight,
-    id,
     isLoading,
     onClick,
     outline,
@@ -29,10 +27,10 @@ const Button = (props) => {
     size,
     tag,
     type,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "btn btn-xs-block",
     "btn-" + (outline ? "outline-" : "") + type,
     size && ("btn-" + size), {
@@ -46,7 +44,7 @@ const Button = (props) => {
     <Icon
       className={"m" + (iconRight ? "l" : "r") + "-1"}
       size={size === "lg" ? "2x" : "lg"}
-      fw
+      fixedWidth
       {...iconProps} />
   )
 
@@ -64,19 +62,17 @@ const Button = (props) => {
   }
 
   // set tag to anchor if there's an href
-  const Tag = other.href ? "a" : "button"
+  const Tag = attributes.href ? "a" : "button"
 
   return (
     <Tag
-      id={id}
       className={classes}
       disabled={disabled || isLoading}
       onClick={(e) => handleOnClick(e)}
       aria-pressed={active}
-      {...other}>
+      {...attributes}>
       {isLoading ?
         <Icon
-          family="fas"
           icon="spinner-third"
           size="lg"
           spin />
@@ -96,7 +92,6 @@ Button.propTypes = {
   block: PropTypes.bool,
   hasIcon: PropTypes.bool,
   iconProps: PropTypes.object,
-  id: PropTypes.string,
   outline: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["sm", "lg"]),

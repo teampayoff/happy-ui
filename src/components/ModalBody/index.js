@@ -1,39 +1,37 @@
-/*
- * Modal Body
- * The content area of a modal
- */
+//
+// Modal Body
+// The content area of a modal
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const ModalBody = (props) => {
+// component
+const ModalBody = props => {
 
   const {
     align,
     children,
     className,
-    id,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "modal-body",
     "text-" + align,
     props.className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
 }
 
 ModalBody.propTypes = {
-  align: PropTypes.oneOf(["left", "center", "right"]),
-  id: PropTypes.string
+  align: PropTypes.oneOf(["left", "center", "right"])
 }
 
 ModalBody.defaultProps = {

@@ -1,3 +1,17 @@
+# 1.3.0 - 2018-05-09
+
+### Added
+* FontAwesome packages
+
+### Changed
+* Shortened const name for classes to cx
+* Single quotes to double quotes
+* Spread operator from ...other to ...attributes
+
+### Removed
+* Static FontAwesome assets
+* id prop declaration
+
 # 1.2.5 - 2018-04-30
 
 ### Changed

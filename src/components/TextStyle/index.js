@@ -1,24 +1,23 @@
-/*
- * TextStyle
- * Common styles applied to text elements
- */
+//
+// TextStyle
+// Common styles applied to text elements
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const TextStyle = (props) => {
+// component
+const TextStyle = props => {
 
   const {
     block,
     children,
     className,
     highlight,
-    id,
     type,
     animate,
-    ...other
+    ...attributes
   } = props
 
   const styles = {
@@ -36,14 +35,14 @@ const TextStyle = (props) => {
 
   const Tag = block ? "p" : "span"
 
-  const classes = classNames(
+  const classes = cx(
     styles[type],
     highlight && hlStyles[highlight],
     className
   )
 
   return (
-    <Tag id={id} className={classes} {...other}>
+    <Tag className={classes} {...attributes}>
       {children}
     </Tag>
   )
@@ -52,7 +51,6 @@ const TextStyle = (props) => {
 TextStyle.propTypes = {
   block: PropTypes.bool,
   highlight: PropTypes.string,
-  id: PropTypes.string,
   type: PropTypes.string
 }
 

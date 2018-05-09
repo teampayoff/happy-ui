@@ -1,29 +1,27 @@
-/*
- * Alert
- * Display feedback in various styles
- */
+//
+// Alert
+// Gives user feedback
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Close from "components/Close"
 
-import Close from 'components/Close'
-
-
-const Alert = (props) => {
+// component
+const Alert = props => {
 
   const {
     align,
     children,
     className,
     dismissible,
-    id,
     toggle,
     type,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "alert",
     "alert-" + type,
     dismissible ? "alert-dismissible text-left" : "text-" + align,
@@ -31,7 +29,7 @@ const Alert = (props) => {
   )
 
   return (
-    <div id={id} className={classes} role="alert" {...other}>
+    <div className={classes} role="alert" {...attributes}>
       {children}
       {dismissible && <Close onClick={toggle} />}
     </div>
@@ -39,11 +37,10 @@ const Alert = (props) => {
 }
 
 Alert.propTypes = {
-  align: PropTypes.oneOf(['left', 'center', 'right']),
+  align: PropTypes.oneOf(["left", "center", "right"]),
   dismissible: PropTypes.bool,
-  id: PropTypes.string,
   toggle: PropTypes.func,
-  type: PropTypes.oneOf(['success', 'danger', 'warning', 'info'])
+  type: PropTypes.oneOf(["success", "danger", "warning", "info"])
 }
 
 Alert.defaultProps = {

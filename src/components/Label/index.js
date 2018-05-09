@@ -1,26 +1,25 @@
-/*
- * Label
- * Display a label for a form element
- */
+//
+// Label
+// Display a label for a form element
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const Label = (props) => {
+// component
+const Label = props => {
 
   const {
     children,
     className,
     hidden,
     htmlFor,
-    id,
     optional,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     hidden && "sr-only",
     className
   )
@@ -28,9 +27,8 @@ const Label = (props) => {
   return (
     <label
       htmlFor={htmlFor}
-      id={id}
       className={classes}
-      {...other}>
+      {...attributes}>
       {children} {optional && " — Optional"}
     </label>
   )
@@ -40,10 +38,6 @@ Label.propTypes = {
   hidden: PropTypes.bool,
   htmlFor: PropTypes.string,
   optional: PropTypes.bool
-}
-
-Label.defaultProps = {
-  children: "Label"
 }
 
 export default Label

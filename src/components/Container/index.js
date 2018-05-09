@@ -1,38 +1,36 @@
-/*
- * Container
- * Fixed or fluid container
- */
+//
+// Container
+// Wrapper component for content
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const Container = (props) => {
+// component
+const Container = props => {
 
   const {
     children,
     className,
     fluid,
-    id,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     fluid ? "container-fluid" : "container",
     className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
 }
 
 Container.propTypes = {
-  fluid: PropTypes.bool,
-  id: PropTypes.string,
+  fluid: PropTypes.bool
 }
 
 export default Container
