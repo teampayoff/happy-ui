@@ -1,39 +1,37 @@
-/*
- * ScrollGroup
- * Wrapper that allows content to scroll within it
- */
+//
+// ScrollGroup
+// Wrapper that allows content to scroll within it
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const ScrollGroup = (props) => {
+// component
+const ScrollGroup = props => {
 
   const {
     axis,
     children,
     className,
-    id,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "component--scrollgroup text-nowrap",
     "scroll-" + axis,
     className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
 }
 
 ScrollGroup.propTypes = {
-  axis: PropTypes.oneOf(["x", "y"]),
-  id: PropTypes.string
+  axis: PropTypes.oneOf(["x", "y"])
 }
 
 ScrollGroup.defaultProps = {

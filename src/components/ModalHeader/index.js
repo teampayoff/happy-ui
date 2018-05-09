@@ -1,17 +1,16 @@
-/*
- * Modal Header
- * Displays heading text and a close button inside a modal
- */
+//
+// Modal Header
+// Heading and icon for modal
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Close from "components/Close"
+import Icon from "@fortawesome/react-fontawesome"
 
-import Close from 'components/Close'
-import Icon from 'components/Icon'
-
-
-const ModalHeader = (props) => {
+// component
+const ModalHeader = props => {
 
   const {
     children,
@@ -21,12 +20,11 @@ const ModalHeader = (props) => {
     hideIcon,
     icon,
     iconProps,
-    id,
     toggle,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "modal-header flex-column",
     hasImage ? "modal-image-header p-0" : "pb-0",
     className
@@ -36,21 +34,19 @@ const ModalHeader = (props) => {
     return (
       <div className="w-100 text-center">
         {!hideIcon &&
-        <span className="fa-stack fa-4x mb-4">
-          <Icon
-            className="fa-stack-2x"
-            family="fas"
-            icon="circle" />
-          <Icon
-            className="fa-stack-1x"
-            family="fas"
-            icon={icon}
-            {...iconProps} />
-          <Icon
-            className="fa-stack-1x"
-            icon={icon}
-            {...iconProps} />
-        </span>
+        <div className="fa-7x">
+          <span className="fa-layers fa-fw">
+            <Icon
+              className="fa-layer-1"
+              color="white"
+              icon="circle" />
+            <Icon
+              className="fa-layer-2"
+              transform="shrink-10"
+              icon={icon}
+              {...iconProps} />
+          </span>
+        </div>
         }
 
         <h3 className="modal-title">
@@ -61,7 +57,7 @@ const ModalHeader = (props) => {
   }
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {!hideClose && <Close onClick={toggle} inverted={hasImage} />}
       {hasImage ? children : renderHeader()}
     </div>
@@ -72,7 +68,6 @@ ModalHeader.propTypes = {
   hideClose: PropTypes.bool,
   icon: PropTypes.string,
   iconProps: PropTypes.object,
-  id: PropTypes.string,
   toggle: PropTypes.func
 }
 

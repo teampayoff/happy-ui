@@ -1,32 +1,31 @@
-/*
- * Row
- * Bootstrap row
- */
+//
+// Row
+// Bootstrap row
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const Row = (props) => {
+// component
+const Row = props => {
 
   const {
     children,
     className,
     formRow,
-    id,
     noGutters,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     formRow ? "form-row" : "row",
     noGutters && "no-gutters",
     className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
@@ -34,7 +33,6 @@ const Row = (props) => {
 
 Row.propTypes = {
   formRow: PropTypes.bool,
-  id: PropTypes.string,
   noGutters: PropTypes.bool,
 }
 

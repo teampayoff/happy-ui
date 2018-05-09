@@ -1,36 +1,33 @@
-/*
- * LabelAction
- * Link aligned with label in a FormGroup
- */
+//
+// LabelAction
+// Link aligned with label in a FormGroup
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Label from "components/Label"
+import Link from "components/Link"
 
-import Label from 'components/Label'
-import Link from 'components/Link'
-
-
-const LabelAction = (props) => {
+// component
+const LabelAction = props => {
 
   const {
     children,
     className,
-    id,
     onClick,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "label-action",
     className
   )
 
   return (
     <Label
-      id={id}
       className={classes}
-      {...other}>
+      {...attributes}>
       <Link onClick={onClick}>
         {children}
       </Link>
@@ -39,7 +36,6 @@ const LabelAction = (props) => {
 }
 
 LabelAction.propTypes = {
-  id: PropTypes.string,
   onClick: PropTypes.func
 }
 

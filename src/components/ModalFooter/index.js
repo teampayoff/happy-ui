@@ -1,38 +1,36 @@
-/*
- * Modal Footer
- * Button actions inside a modal
- */
+//
+// Modal Footer
+// Button actions inside a modal
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const ModalFooter = (props) => {
+// component
+const ModalFooter = props => {
 
   const {
     children,
     className,
-    id,
     stacked,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "modal-footer pt-0",
     stacked && "flex-column",
     className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
 }
 
 ModalFooter.propTypes = {
-  id: PropTypes.string,
   stacked: PropTypes.bool,
 }
 

@@ -1,37 +1,35 @@
-/*
- * FormText
- * Text element to display help text or error messages
- */
+//
+// FormText
+// Text element to display help text or error messages
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const FormText = (props) => {
+// component
+const FormText = props => {
 
   const {
     children,
     className,
-    id,
     invalid,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     invalid ? "invalid-feedback" : "form-text",
     className
   )
 
   return (
-    <div id={id} className={classes} {...other}>
+    <div className={classes} {...attributes}>
       {children}
     </div>
   )
 }
 
 FormText.propTypes = {
-  id: PropTypes.string,
   invalid: PropTypes.bool
 }
 

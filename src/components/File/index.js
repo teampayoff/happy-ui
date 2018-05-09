@@ -1,17 +1,16 @@
-/*
- * File
- * Custom file upload element
- */
+//
+// File
+// Custom file upload element
+//
 
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Button from "components/Button"
+import Link from "components/Link"
 
-import Button from 'components/Button'
-import Link from 'components/Link'
-
-
-export default class File extends Component {
+// component
+class File extends Component {
 
   openFileBrowser = (e, callback) => {
     e.preventDefault()
@@ -27,7 +26,7 @@ export default class File extends Component {
       id,
       tag,
       tagProps,
-      ...other
+      ...attributes
     } = this.props
 
     const tags = {
@@ -59,12 +58,12 @@ export default class File extends Component {
           className="d-none"
           ref={(input) => {this.input = input}}
           multiple
-          {...other} />
+          {...attributes} />
         <Tag
-          className={classNames(tags[tag].classes, className)}
+          className={cx(tags[tag].classes, className)}
           onClick={(e) => {this.openFileBrowser(e, callback)}}
           {...tags[tag].defaultProps}
-          {...other}>
+          {...attributes}>
           {children}
         </Tag>
       </span>
@@ -82,3 +81,5 @@ File.defaultProps = {
   id: "upload",
   tag: "button"
 }
+
+export default File

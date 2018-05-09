@@ -1,26 +1,24 @@
-/*
- * Close
- * Button to close alerts and modals
- */
+//
+// Close
+// Used in alerts and modals
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Icon from "@fortawesome/react-fontawesome"
 
-import Icon from 'components/Icon'
-
-
-const Close = (props) => {
+// component
+const Close = props => {
 
   const {
     className,
-    id,
     inverted,
     onClick,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "close",
     inverted && "close-inverted",
     className
@@ -28,21 +26,19 @@ const Close = (props) => {
 
   return (
     <button
-      id={id}
       type="button"
       className={classes}
       onClick={onClick}
       aria-label="Close"
-      {...other}>
+      {...attributes}>
       <span aria-hidden="true">
-        <Icon icon="times" />
+        <Icon icon={["fal", "times"]} />
       </span>
     </button>
   )
 }
 
 Close.propTypes = {
-  id: PropTypes.string,
   inverted: PropTypes.bool,
   onClick: PropTypes.func
 }

@@ -1,6 +1,3 @@
-// Import Bootstrap functions to avoid compile error
-@import "node_modules/bootstrap/scss/functions";
-
 // Bootstrap Overrides
 //
 // Copy variables from `_variables.scss` to this file to override default values
@@ -50,7 +47,7 @@ $colors: (
   green: $green,
   white: $white,
   gray: $gray-400,
-  gray-dark: $gray-600
+  gray-dark: $black
 );
 
 $theme-colors: (

@@ -1,16 +1,15 @@
-/*
- * Checkbox
- * Custom checkbox element
- */
+//
+// Checkbox
+// Custom checkbox element
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Label from "components/Label"
 
-import Label from 'components/Label'
-
-
-const Checkbox = (props) => {
+// component
+const Checkbox = props => {
 
   const {
     checked,
@@ -18,13 +17,12 @@ const Checkbox = (props) => {
     className,
     disabled,
     hideLabel,
-    id,
     labelProps,
     required,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames (
+  const classes = cx (
     "custom-control custom-checkbox",
     className
   )
@@ -32,13 +30,12 @@ const Checkbox = (props) => {
   return (
     <div className={classes}>
       <input
-        id={id}
         type="checkbox"
         className="custom-control-input"
         checked={checked}
         disabled={disabled}
         required={required}
-        {...other}/>
+        {...attributes}/>
       <Label className="custom-control-label" hidden={hideLabel} htmlFor={id} {...labelProps}>
         {children}
       </Label>
@@ -50,7 +47,6 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   hideLabel: PropTypes.bool,
-  id: PropTypes.string,
   labelProps: PropTypes.object,
   required: PropTypes.bool
 }

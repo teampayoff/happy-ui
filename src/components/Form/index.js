@@ -1,37 +1,35 @@
-/*
- * Form
- * Form wrapper
- */
+//
+// Form
+// Form tag with props
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
 
-
-const Form = (props) => {
+// component
+const Form = props => {
 
   const {
     children,
     className,
-    id,
     inline,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     inline && "form-inline",
     className
   )
 
   return (
-    <form id={id} className={classes} {...other}>
+    <form className={classes} {...attributes}>
       {children}
     </form>
   )
 }
 
 Form.propTypes = {
-  id: PropTypes.string,
   inline: PropTypes.bool
 }
 

@@ -1,16 +1,15 @@
-/*
- * Select
- * Custom select dropdown
- */
+//
+// Select
+// Custom select dropdown
+//
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from "react"
+import PropTypes from "prop-types"
+import cx from "classnames"
+import Label from "components/Label"
 
-import Label from 'components/Label'
-
-
-const Select = (props) => {
+// component
+const Select = props => {
 
   const {
     children,
@@ -25,10 +24,10 @@ const Select = (props) => {
     options,
     required,
     size,
-    ...other
+    ...attributes
   } = props
 
-  const classes = classNames(
+  const classes = cx(
     "form-control custom-select",
     size && "form-control-" + size
   )
@@ -57,7 +56,7 @@ const Select = (props) => {
         className={classes}
         disabled={disabled}
         required={required}
-        {...other} >
+        {...attributes} >
         <option className="d-none">
           {defaultOption}
         </option>
