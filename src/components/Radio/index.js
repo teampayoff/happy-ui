@@ -57,4 +57,8 @@ Radio.propTypes = {
   required: PropTypes.bool
 }
 
+Radio.defaultProps = {
+  id: "radio"
+}
+
 export default Radio

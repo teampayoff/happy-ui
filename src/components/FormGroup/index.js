@@ -15,6 +15,7 @@ const FormGroup = props => {
     check,
     children,
     className,
+    id,
     label,
     labelProps,
     row,
@@ -32,8 +33,8 @@ const FormGroup = props => {
   )
 
   return (
-    <div className={classes} {...attributes}>
-      {label && <Label {...labelProps}>{label}</Label>}
+    <div id={id} className={classes} {...attributes}>
+      {label && <Label htmlFor={id} {...labelProps}>{label}</Label>}
       {children}
     </div>
   )
@@ -41,10 +42,15 @@ const FormGroup = props => {
 
 FormGroup.propTypes = {
   check: PropTypes.bool,
+  id: PropTypes.string,
   label: PropTypes.string,
   labelProps: PropTypes.object,
   row: PropTypes.bool,
   stacked: PropTypes.bool
+}
+
+FormGroup.defaultProps = {
+  id: "group"
 }
 
 export default FormGroup

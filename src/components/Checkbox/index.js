@@ -17,6 +17,7 @@ const Checkbox = props => {
     className,
     disabled,
     hideLabel,
+    id,
     labelProps,
     required,
     ...attributes
@@ -30,6 +31,7 @@ const Checkbox = props => {
   return (
     <div className={classes}>
       <input
+        id={id}
         type="checkbox"
         className="custom-control-input"
         checked={checked}
@@ -47,8 +49,13 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   hideLabel: PropTypes.bool,
+  id: PropTypes.string,
   labelProps: PropTypes.object,
   required: PropTypes.bool
+}
+
+Checkbox.defaultProps = {
+  id: "checkbox"
 }
 
 export default Checkbox

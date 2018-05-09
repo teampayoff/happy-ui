@@ -89,7 +89,8 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-  defaultOption: "Select One"
+  defaultOption: "Select One",
+  id: "select"
 }
 
 export default Select

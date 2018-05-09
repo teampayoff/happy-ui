@@ -62,7 +62,7 @@ const Button = props => {
   }
 
   // set tag to anchor if there's an href
-  const Tag = other.href ? "a" : "button"
+  const Tag = attributes.href ? "a" : "button"
 
   return (
     <Tag
