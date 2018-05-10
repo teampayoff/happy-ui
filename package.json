@@ -1,6 +1,6 @@
 {
   "name": "happy-ui",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Shared UI components for building Happy Money products.",
   "contributors": [
     {
@@ -70,6 +70,7 @@
   },
   "files": [
     "dist",
-    "src/scss"
+    "src/scss",
+    ".npmrc"
   ]
 }

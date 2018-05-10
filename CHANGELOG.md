@@ -1,3 +1,8 @@
+# 1.3.3 - 2018-05-10
+
+### Added
+* .npmrc to package.json
+
 # 1.3.2 - 2018-05-10
 
 ### Removed
