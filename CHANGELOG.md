@@ -1,3 +1,8 @@
+# 1.3.1 - 2018-05-10
+
+### Added
+* FontAwesome auth token
+
 # 1.3.0 - 2018-05-09
 
 ### Added
