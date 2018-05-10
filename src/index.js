@@ -63,6 +63,5 @@ export {
   ScrollGroup,
   Select,
   TextStyle,
-  Util,
-  styles
+  Util
 }
