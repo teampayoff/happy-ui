@@ -6,7 +6,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
-import Icon from "@fortawesome/react-fontawesome"
+import Icon from "components/Icon"
 
 // component
 const Close = props => {
@@ -32,7 +32,7 @@ const Close = props => {
       aria-label="Close"
       {...attributes}>
       <span aria-hidden="true">
-        <Icon icon={["fal", "times"]} />
+        <Icon icon="times" />
       </span>
     </button>
   )

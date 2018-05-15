@@ -1,14 +1,6 @@
 // import styles
 import "scss/index.scss"
 
-// import icons: https://github.com/FortAwesome/react-fontawesome
-import FontAwesome from "@fortawesome/fontawesome"
-import brands from "@fortawesome/fontawesome-free-brands"
-import light from "@fortawesome/fontawesome-pro-light"
-import solid from "@fortawesome/fontawesome-pro-solid"
-
-FontAwesome.library.add(brands, light, solid)
-
 // import components
 import Alert from "components/Alert"
 import Badge from "components/Badge"
@@ -21,7 +13,7 @@ import File from "components/File"
 import Form from "components/Form"
 import FormGroup from "components/FormGroup"
 import FormText from "components/FormText"
-import Icon from "@fortawesome/react-fontawesome"
+import Icon from "components/Icon"
 import Input from "components/Input"
 import Label from "components/Label"
 import LabelAction from "components/LabelAction"

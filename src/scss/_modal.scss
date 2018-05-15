@@ -14,9 +14,19 @@
   }
 
   // Icons
-  .fa-layers {
-    .fa-layer-1 { filter: drop-shadow($shadow-level-1); }
-    .fa-layer-2 { color: $dark-blue; }
+  .fa-stack {
+    :nth-child(1) {
+      color: $white;
+      text-shadow: $shadow-level-1;
+    }
+
+    :nth-child(2) {
+      color: lighten($blue, 35%);
+    }
+
+    :nth-child(3) {
+      color: $dark-blue;
+    }
   }
 }
 

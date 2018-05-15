@@ -6,7 +6,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
-import Icon from "@fortawesome/react-fontawesome"
+import Icon from "components/Icon"
 
 // component
 const Button = props => {
@@ -44,7 +44,7 @@ const Button = props => {
     <Icon
       className={"m" + (iconRight ? "l" : "r") + "-1"}
       size={size === "lg" ? "2x" : "lg"}
-      fixedWidth
+      fw
       {...iconProps} />
   )
 

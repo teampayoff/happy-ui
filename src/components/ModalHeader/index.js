@@ -7,7 +7,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
 import Close from "components/Close"
-import Icon from "@fortawesome/react-fontawesome"
+import Icon from "components/Icon"
 
 // component
 const ModalHeader = props => {
@@ -34,19 +34,21 @@ const ModalHeader = props => {
     return (
       <div className="w-100 text-center">
         {!hideIcon &&
-        <div className="fa-7x">
-          <span className="fa-layers fa-fw">
-            <Icon
-              className="fa-layer-1"
-              color="white"
-              icon="circle" />
-            <Icon
-              className="fa-layer-2"
-              transform="shrink-10"
-              icon={icon}
-              {...iconProps} />
-          </span>
-        </div>
+        <span className="fa-stack fa-4x mb-4">
+          <Icon
+            className="fa-stack-2x"
+            family="fas"
+            icon="circle" />
+          <Icon
+            className="fa-stack-1x"
+            family="fas"
+            icon={icon}
+            {...iconProps} />
+          <Icon
+            className="fa-stack-1x"
+            icon={icon}
+            {...iconProps} />
+        </span>
         }
 
         <h3 className="modal-title">

@@ -1,3 +1,8 @@
+# 1.3.5 - 2018-05-15
+
+### Reverted
+* 1.3.1 changes that added FontAwesome node package
+
 # 1.3.4 - 2018-05-14
 
 ### Added
