@@ -1,3 +1,11 @@
+# 1.3.4 - 2018-05-14
+
+### Added
+* Bodoni web fonts
+
+### Removed
+* Playfair Display font reference
+
 # 1.3.3 - 2018-05-10
 
 ### Added
