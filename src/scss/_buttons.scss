@@ -5,6 +5,7 @@
 // Buttons
 
 .btn {
+  font-family: $headings-font-family;
   letter-spacing: 0.075rem;
   text-transform: uppercase;
 
@@ -41,7 +42,7 @@
 
 @include media-breakpoint-up(sm) {
   // Allow extra padding on buttons for desktop
-  .btn-wide { @include button-padding-x($input-btn-padding-x, 5); }
-  .btn-sm.btn-wide { @include button-padding-x($input-btn-padding-x-sm, 4); }
-  .btn-lg.btn-wide { @include button-padding-x($input-btn-padding-x-lg, 6); }
+  .btn-wide { @include button-padding-x($input-btn-padding-x, 4); }
+  .btn-sm.btn-wide { @include button-padding-x($input-btn-padding-x-sm, 3); }
+  .btn-lg.btn-wide { @include button-padding-x($input-btn-padding-x-lg, 5); }
 }

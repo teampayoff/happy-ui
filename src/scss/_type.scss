@@ -8,7 +8,7 @@
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 h1, .h1,
@@ -25,7 +25,7 @@ h5, .h5 {
 }
 
 h6, .h6 {
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   margin-bottom: $headings-margin-bottom * 2;
 }
 
@@ -83,7 +83,7 @@ hr {
 
   p { margin-bottom: $paragraph-margin-bottom * 1.2; }
 
-  .lead { font-size: $lead-font-size * 1.1; }
+  .lead { font-size: $lead-font-size * 1.22222222; } // ~22px
 
   hr {
     margin: ceil($hr-margin-y * 1.33) 0; // ~40px

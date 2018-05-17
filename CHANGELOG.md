@@ -1,3 +1,20 @@
+# 1.4.0 - 2018-05-17
+
+### Added
+* Storybook stories to example app
+
+### Changed
+* Button font family to Trade Gothic
+* Heading line height and letter spacing
+* Evened out highlight class
+* Reduced padding on .btn-wide class
+* Darkened gray value used for .text-muted
+* Decreased font size for .lead on mobile
+* Nav item spacing
+
+### Removed
+* Bootstrap as a dependency (duplicate declaration)
+
 # 1.3.5 - 2018-05-15
 
 ### Reverted

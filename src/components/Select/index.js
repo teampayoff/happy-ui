@@ -3,7 +3,7 @@
 // Custom select dropdown
 //
 
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import cx from "classnames"
 import Label from "components/Label"
@@ -18,18 +18,23 @@ const Select = props => {
     disabled,
     hideLabel,
     id,
+    invalid,
     label,
     labelAction,
     labelProps,
     options,
     required,
     size,
+    valid,
     ...attributes
   } = props
 
   const classes = cx(
     "form-control custom-select",
-    size && "form-control-" + size
+    size && "form-control-" + size,
+    invalid && "is-invalid",
+    valid && "is-valid",
+    className
   )
 
   const inputLabel = (
@@ -48,7 +53,7 @@ const Select = props => {
   /* TODO: Add ability for select options to accept array without key, value pairs */
 
   return (
-    <div className={className}>
+    <Fragment>
       {inputLabel}
       <select
         id={id}
@@ -68,7 +73,7 @@ const Select = props => {
           </option>
         )}
       </select>
-    </div>
+    </Fragment>
   )
 }
 
@@ -77,6 +82,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   hideLabel: PropTypes.bool,
   id: PropTypes.string,
+  invalid: PropTypes.bool,
   label: PropTypes.string,
   labelAction: PropTypes.element,
   labelProps: PropTypes.object,
@@ -85,7 +91,8 @@ Select.propTypes = {
     PropTypes.object
   ]),
   required: PropTypes.bool,
-  size: PropTypes.oneOf(["sm", "lg"])
+  size: PropTypes.oneOf(["sm", "lg"]),
+  valid: PropTypes.bool
 }
 
 Select.defaultProps = {

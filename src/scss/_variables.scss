@@ -151,7 +151,7 @@ $h6-font-size:                $font-size-base;
 $headings-margin-bottom:      0.5em;
 $headings-font-family:        "Trade Gothic", $font-family-sans-serif;
 $headings-font-weight:        400;
-$headings-line-height:        1.2;
+$headings-line-height:        1.1;
 
 $display1-size:               $h1-font-size * 1.125;
 $display2-size:               $h1-font-size * 1.125;
@@ -163,9 +163,11 @@ $display2-weight:             $headings-font-weight;
 $display3-weight:             $headings-font-weight;
 $display4-weight:             $headings-font-weight;
 
+$lead-font-size:              ($font-size-base * 1.125); // ~18px
+
 $small-font-size: $font-size-sm;
 
-$text-muted: $gray-400;
+$text-muted: $gray-500;
 
 $hr-margin-y:                 $spacer * 1.5; // ~30px
 
@@ -249,6 +251,8 @@ $custom-select-padding-x:               $input-btn-padding-x;
 
 $navbar-padding-x:                  ($spacer * 0.75);
 $navbar-padding-y:                  ($spacer * 0.75);
+
+$navbar-nav-link-padding-x:         1rem;
 
 $navbar-light-color:                $black;
 $navbar-light-hover-color:          $pink;

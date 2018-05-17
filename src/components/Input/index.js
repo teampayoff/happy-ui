@@ -3,7 +3,7 @@
 // Create different types of inputs with or without masking
 //
 
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
 import MaskedInput from "react-text-mask"
 import cx from "classnames"
@@ -28,6 +28,7 @@ class Input extends Component {
       disabled,
       hideLabel,
       id,
+      invalid,
       label,
       labelAction,
       labelProps,
@@ -36,12 +37,16 @@ class Input extends Component {
       required,
       size,
       type,
+      valid,
       ...attributes
     } = this.props
 
     const classes = cx(
       "form-control",
-      size && "form-control-" + size
+      size && "form-control-" + size,
+      invalid && "is-invalid",
+      valid && "is-valid",
+      className
     )
 
     // params for masked inputs
@@ -94,7 +99,7 @@ class Input extends Component {
 
     if(mask) {
       return (
-        <div className={className}>
+        <Fragment>
           {inputLabel}
           <MaskedInput
             id={id}
@@ -108,11 +113,11 @@ class Input extends Component {
             required={required}
             ref={(input) => {this.input = input}}
             {...attributes} />
-        </div>
+        </Fragment>
       )
     } else {
       return (
-        <div className={className}>
+        <Fragment>
           {inputLabel}
           <input
             id={id}
@@ -125,7 +130,7 @@ class Input extends Component {
             required={required}
             ref={(input) => {this.input = input}}
             {...attributes} />
-        </div>
+        </Fragment>
       )
     }
   }
@@ -135,6 +140,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   hideLabel: PropTypes.bool,
   id: PropTypes.string,
+  invalid: PropTypes.bool,
   label: PropTypes.string,
   labelAction: PropTypes.element,
   labelProps: PropTypes.object,
@@ -142,7 +148,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   size: PropTypes.oneOf(["sm", "lg"]),
-  type: PropTypes.string
+  type: PropTypes.string,
+  valid: PropTypes.bool
 }
 
 Input.defaultProps = {

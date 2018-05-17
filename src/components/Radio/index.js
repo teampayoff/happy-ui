@@ -19,22 +19,27 @@ const Radio = (props) => {
     group,
     hideLabel,
     id,
+    invalid,
     labelProps,
+    messages,
     required,
+    valid,
     ...attributes
   } = props
 
   const classes = cx(
-    "custom-control custom-radio",
+    "custom-control-input",
+    invalid && "is-invalid",
+    valid && "is-valid",
     className
   )
 
   return (
-    <div className={classes}>
+    <div className="custom-control custom-radio">
       <input
         id={id}
         type="radio"
-        className="custom-control-input"
+        className={classes}
         checked={checked}
         disabled={disabled}
         name={group}
@@ -43,6 +48,7 @@ const Radio = (props) => {
       <Label className="custom-control-label" hidden={hideLabel} htmlFor={id} {...labelProps}>
         {children}
       </Label>
+      {messages}
     </div>
   )
 }
@@ -53,8 +59,11 @@ Radio.propTypes = {
   group: PropTypes.string,
   hideLabel: PropTypes.bool,
   id: PropTypes.string,
+  invalid: PropTypes.bool,
   labelProps: PropTypes.object,
-  required: PropTypes.bool
+  messages: PropTypes.element,
+  required: PropTypes.bool,
+  valid: PropTypes.bool
 }
 
 Radio.defaultProps = {
