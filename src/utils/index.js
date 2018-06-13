@@ -65,6 +65,10 @@ export const CommonLinks = {
     title: "Twitter",
     href: "https://www.twitter.com/payoff/"
   },
+  verification: {
+    title: "verification@payoff.com",
+    href: "mailto:verification@payoff.com"
+  },
   youtube: {
     title: "YouTube",
     href: "https://www.youtube.com/payoff/"

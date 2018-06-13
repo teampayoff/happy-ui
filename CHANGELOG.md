@@ -1,3 +1,8 @@
+# 1.4.1 - 2018-06-13
+
+### Added
+* Verification link to CommonLinks
+
 # 1.4.0 - 2018-05-17
 
 ### Added
