@@ -37,9 +37,7 @@ const Link = props => {
       onClick={onClick}
       tabIndex="-1"
       target={href && target}
-      {...attributes}>
-      {children || link && link.title}
-    </a>
+      {...attributes}>{children || link && link.title}</a>
   )
 }
 

@@ -1,3 +1,8 @@
+# 1.4.2 - 2018-06-14
+
+### Changed
+* Modified Link render method to fix issue with server-side rendering
+
 # 1.4.1 - 2018-06-13
 
 ### Added
