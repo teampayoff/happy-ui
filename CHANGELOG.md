@@ -1,3 +1,8 @@
+# 1.4.3 - 2018-06-19
+
+### Changed
+* Increased integer limit for currency fields to 8
+
 # 1.4.2 - 2018-06-14
 
 ### Changed

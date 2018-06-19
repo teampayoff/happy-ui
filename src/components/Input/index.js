@@ -55,7 +55,7 @@ class Input extends Component {
         guide: false,
         mask: numberMask({
           allowDecimal: true,
-          integerLimit: 7
+          integerLimit: 8
         }),
         placeholder: "$0.00"
       },
