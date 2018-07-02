@@ -1,3 +1,8 @@
+# 1.4.4 - 2018-06-26
+
+### Added
+* labelClass prop to allow additional stying for checkbox and radio labels 
+
 # 1.4.3 - 2018-06-19
 
 ### Changed

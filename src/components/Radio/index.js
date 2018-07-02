@@ -20,6 +20,7 @@ const Radio = (props) => {
     hideLabel,
     id,
     invalid,
+    labelClass,
     labelProps,
     messages,
     required,
@@ -45,7 +46,7 @@ const Radio = (props) => {
         name={group}
         required={required}
         {...attributes} />
-      <Label className="custom-control-label" hidden={hideLabel} htmlFor={id} {...labelProps}>
+      <Label className={cx("custom-control-label", labelClass)} hidden={hideLabel} htmlFor={id} {...labelProps}>
         {children}
       </Label>
       {messages}
@@ -60,6 +61,7 @@ Radio.propTypes = {
   hideLabel: PropTypes.bool,
   id: PropTypes.string,
   invalid: PropTypes.bool,
+  labelClass: PropTypes.string,
   labelProps: PropTypes.object,
   messages: PropTypes.element,
   required: PropTypes.bool,
