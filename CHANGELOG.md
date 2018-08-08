@@ -1,7 +1,12 @@
+# 1.4.5 - 2018-08-01
+
+### Added
+* Added public folder with static error html pages / favicon at root directory
+
 # 1.4.4 - 2018-06-26
 
 ### Added
-* labelClass prop to allow additional stying for checkbox and radio labels 
+* labelClass prop to allow additional stying for checkbox and radio labels
 
 # 1.4.3 - 2018-06-19
 
