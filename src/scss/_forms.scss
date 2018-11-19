@@ -9,6 +9,33 @@
   line-height: $font-size-base * $line-height-base; // ~24px
 }
 
+.custom-checkbox.large  {
+  .custom-control-label {
+    line-height: 1.8rem;
+
+    &:before {
+      width: 1.8rem;
+      height: 1.8rem;
+      box-shadow: none; 
+      background-color: #E5E7EB;
+      left: -2.5rem;
+    } 
+
+    &:after {
+      width: 1.8rem;
+      height: 1.8rem;
+      left: -2.5rem;
+    }
+  }
+
+}
+
+.custom-checkbox.green {
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: $green;
+  }
+} 
+
 
 // Validation states
 @mixin form-validation-bg($state, $color, $percent) {

@@ -15,6 +15,7 @@ const Checkbox = props => {
     checked,
     children,
     className,
+    color,
     disabled,
     hideLabel,
     id,
@@ -23,6 +24,7 @@ const Checkbox = props => {
     labelProps,
     messages,
     required,
+    size,
     valid,
     ...attributes
   } = props
@@ -35,7 +37,7 @@ const Checkbox = props => {
   )
 
   return (
-    <div className="custom-control custom-checkbox">
+    <div className={cx('custom-control custom-checkbox', size && size, color && color)}>
       <input
         id={id}
         type="checkbox"
@@ -44,7 +46,7 @@ const Checkbox = props => {
         disabled={disabled}
         required={required}
         {...attributes}/>
-      <Label className={cx("custom-control-label", labelClass)} hidden={hideLabel} htmlFor={id} {...labelProps}>
+      <Label className={cx("custom-control-label", labelClass, color)} hidden={hideLabel} htmlFor={id} {...labelProps}>
         {children}
       </Label>
       {messages}

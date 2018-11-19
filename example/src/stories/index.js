@@ -105,11 +105,17 @@ storiesOf("Button", module)
 storiesOf("Form", module)
   .addDecorator(CenterLayout)
   .add("Checkbox", () => (
-    <FormGroup>
-      <Checkbox id="checkbox--1">I choose this option</Checkbox>
-      <Checkbox id="checkbox--2">I choose this option</Checkbox>
-      <Checkbox id="checkbox--3">I choose this option</Checkbox>
-    </FormGroup>
+    <Fragment>
+      <FormGroup>
+        <Checkbox id="checkbox--1">I choose this option</Checkbox>
+        <Checkbox id="checkbox--2">I choose this option</Checkbox>
+        <Checkbox id="checkbox--3">I choose this option</Checkbox>
+      </FormGroup>
+
+      <FormGroup>
+        <Checkbox size="large" color="green">I choose this option</Checkbox>
+      </FormGroup>
+    </Fragment>
   ))
   .add("Feedback", () => (
     <Fragment>
