@@ -14,6 +14,7 @@
     line-height: 1.8rem;
 
     &:before {
+      position: relative;
       width: 1.8rem;
       height: 1.8rem;
       box-shadow: none; 
@@ -22,6 +23,7 @@
     } 
 
     &:after {
+      position: relative;
       width: 1.8rem;
       height: 1.8rem;
       left: -2.5rem;
