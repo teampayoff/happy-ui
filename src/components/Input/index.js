@@ -119,21 +119,22 @@ class Input extends Component {
     } else if (type === 'card') {
       return (
       <Number
-        onChange={({value, valid}) => console.log(value, valid)}
         render={({
           getInputProps,
           valid
         }) =>
-          <Input
+        <Fragment>
+        {inputLabel}
+          <input
             {...getInputProps()}
-            className={valid ? 'is-valid' : ''}
-            label={label}
+            className={classes}
             required={required}
             ref={(input) => {this.input = input}}
             placeholder={placeholder}
             disabled={disabled}
             {...attributes}
           />
+          </Fragment>
         }
         />
       )
