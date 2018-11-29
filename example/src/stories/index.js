@@ -203,6 +203,10 @@ storiesOf("Form", module)
       <FormGroup>
         <Input label="Zip Code w/Mask" type="zip" required />
       </FormGroup>
+
+      <FormGroup>
+        <Input label="Credit Card w/Mask" type="card" required placeholder="Card Number"/>
+      </FormGroup>
     </Fragment>
   ))
   .add("Radio", () => (

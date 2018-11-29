@@ -12,6 +12,7 @@ import Label from "components/Label"
 // addons
 import emailMask from "text-mask-addons/dist/emailMask"
 import numberMask from "text-mask-addons/dist/createNumberMask"
+import { Number } from "react-credit-card-primitives"
 
 // component
 class Input extends Component {
@@ -115,7 +116,29 @@ class Input extends Component {
             {...attributes} />
         </Fragment>
       )
-    } else {
+    } else if (type === 'card') {
+      return (
+      <Number
+        onChange={({value, valid}) => console.log(value, valid)}
+        render={({
+          getInputProps,
+          valid
+        }) =>
+          <Input
+            {...getInputProps()}
+            className={valid ? 'is-valid' : ''}
+            label={label}
+            required={required}
+            ref={(input) => {this.input = input}}
+            placeholder={placeholder}
+            disabled={disabled}
+            {...attributes}
+          />
+        }
+        />
+      )
+    }
+    else {
       return (
         <Fragment>
           {inputLabel}

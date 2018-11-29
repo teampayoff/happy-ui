@@ -63,5 +63,8 @@
   "files": [
     "dist",
     "src/scss"
-  ]
+  ],
+  "dependencies": {
+    "react-credit-card-primitives": "^1.5.1"
+  }
 }
