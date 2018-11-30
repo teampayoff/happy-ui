@@ -34,6 +34,7 @@ class Input extends Component {
       labelAction,
       labelProps,
       maskProps,
+      onCardNumberChange,
       placeholder,
       required,
       size,
@@ -119,6 +120,8 @@ class Input extends Component {
     } else if (type === 'card') {
       return (
       <Number
+        onChange={onCardNumberChange}
+        defaultValue={'1234'}
         render={({
           getInputProps,
           valid
