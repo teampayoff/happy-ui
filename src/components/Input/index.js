@@ -26,6 +26,7 @@ class Input extends Component {
     const {
       children,
       className,
+      cardDefault,
       disabled,
       hideLabel,
       id,
@@ -121,7 +122,7 @@ class Input extends Component {
       return (
       <Number
         onChange={onCardNumberChange}
-        defaultValue={'1234'}
+        defaultValue={cardDefault}
         render={({
           getInputProps,
           valid
