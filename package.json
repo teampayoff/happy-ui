@@ -65,6 +65,8 @@
     "src/scss"
   ],
   "dependencies": {
-    "react-credit-card-primitives": "^1.5.1"
+    "@babel/runtime": "^7.2.0",
+    "react-credit-card-primitives": "^1.5.1",
+    "reactstrap": "^6.5.0"
   }
 }

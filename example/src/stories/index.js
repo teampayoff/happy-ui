@@ -2,6 +2,8 @@ import React, { Fragment } from "react"
 import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import { linkTo } from "@storybook/addon-links"
+import { Modal } from "reactstrap"
+import { withKnobs, text, select, number, boolean, radios } from "@storybook/addon-knobs"
 
 import "happy-ui/dist/css/bundle.min.css"
 import "../index.css"
@@ -22,6 +24,9 @@ import {
   LabelAction,
   Link,
   Logo,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
   Radio,
   Row,
   Select,
@@ -36,142 +41,299 @@ const CenterLayout = (storyFn) => (
   </div>
 )
 
-storiesOf("Alert", module)
-  .addDecorator(CenterLayout)
-  .add("Default Alerts", () =>(
-    <Fragment>
-      <Alert type="success">Hey, something good happened!</Alert>
-      <Alert type="info">You might want to know this piece of info.</Alert>
-      <Alert type="warning">You should check this out, but it"s not urgent.</Alert>
-      <Alert type="danger">Uh, oh. Something bad happened.</Alert>
-    </Fragment>
-  ))
-  .add("Dismissible", () =>(
-    <Fragment>
-      <Alert type="success" dismissible>Hey, something good happened!</Alert>
-      <Alert type="info" dismissible>You might want to know this piece of info.</Alert>
-      <Alert type="warning" dismissible>You should check this out, but it"s not urgent.</Alert>
-      <Alert type="danger" dismissible>Uh, oh. Something bad happened.</Alert>
-    </Fragment>
-  ))
+const stories = storiesOf('Storybook Knobs', module);
+const alerts = storiesOf('Alert', module);
+const badge = storiesOf('Badge', module);
+const button = storiesOf('Button', module);
+const form = storiesOf('Form', module);
 
-storiesOf("Badge", module)
-  .addDecorator(CenterLayout)
-  .add("Badge Types", () =>(
-    <div>
-      <Badge className="mx-1" type="success">Success</Badge>
-      <Badge className="mx-1" type="info">Info</Badge>
-      <Badge className="mx-1" type="warning">Warning</Badge>
-      <Badge className="mx-1" type="danger">Danger</Badge>
-    </div>
-  ))
+stories.addDecorator(withKnobs)
+alerts.addDecorator(withKnobs).addDecorator(CenterLayout)
+badge.addDecorator(withKnobs).addDecorator(CenterLayout)
+button.addDecorator(withKnobs).addDecorator(CenterLayout)
+form.addDecorator(withKnobs).addDecorator(CenterLayout)
 
-storiesOf("Button", module)
-  .addDecorator(CenterLayout)
-  .add("Primary", () => (
-    <Fragment>
-      <Button>Continue</Button>
-      <Button disabled>Continue</Button>
-    </Fragment>
-  ))
-  .add("Secondary", () => (
-    <Fragment>
-      <Button outline>Cancel</Button>
-      <Button disabled outline>Cancel</Button>
-    </Fragment>
-  ))
-  .add("Button Link", () => (
-    <Fragment>
-      <Button type="link">Learn More</Button>
-      <Button type="link" disabled>Learn More</Button>
-    </Fragment>
-  ))
-  .add("Wider Buttons", () => (
-    <Fragment>
-      <Button className="btn-wide" size="lg">Continue</Button>
-      <Button className="btn-wide">Continue</Button>
-      <Button className="btn-wide" size="sm">Continue</Button>
-    </Fragment>
-  ))
-  .add("Icons (hasIcon)", () => (
-    <Fragment>
-      <Button hasIcon iconProps={{ icon: "upload" }}>Upload</Button>
-      <div className="my-2"></div>
-      <Button hasIcon iconRight iconProps={{ icon: "arrow-right" }}>Next</Button>
-    </Fragment>
-  ))
-  .add("Loading (isLoading)", () => <Button className="btn-wide" isLoading>Continue</Button>)
+stories.add('with button', () => (
+  <Button disabled={boolean('Disabled', false)} >
+    {text('Label', 'Hello Storybook')}
+  </Button>
+))
 
-storiesOf("Form", module)
-  .addDecorator(CenterLayout)
-  .add("Checkbox", () => (
+stories.add('as dynamic variables', () => {
+  const name = text('Name', 'Arunoda Susiripala');
+  const age = number('Age', 89);
+
+  const content = `I am ${name} and I'm ${age} years old.`;
+  return (<div>{content}</div>);
+});
+
+  alerts.add("Default Alerts", () =>{
+    const label = "Alert Type";
+    const defaultValue = 'success';
+    const options = {
+      success: 'success',
+      info: 'info',
+      warning: 'warning',
+      danger: 'danger'
+    }
+    const value = select(label, options, defaultValue);
+    return (
+      <Fragment>
+        <Alert type={value}>This is the {value} message</Alert>
+      </Fragment>
+    )
+  })
+  .add("Dismissible", () => {
+    const label = "Alert Type";
+    const defaultValue = 'success';
+    const options = {
+      success: 'success',
+      info: 'info',
+      warning: 'warning',
+      danger: 'danger'
+    }
+    const value = select(label, options, defaultValue);
+    return (
+      <Fragment>
+        <Alert type={value} dismissible>This is a dismissable {value} message</Alert>
+      </Fragment>
+    )
+  })
+
+  badge.add("Badge Types", () => {
+    const label = "Badge Type";
+    const defaultValue = 'success';
+    const options = {
+      success: 'success',
+      info: 'info',
+      warning: 'warning',
+      danger: 'danger'
+    }
+    const value = select(label, options, defaultValue);
+    return (
+      <div>
+        <Badge className="mx-1" type={value}>{value}</Badge>
+      </div>
+    )
+  })
+
+  button.add("Primary", () => {
+    const disabledLabel = 'Disabled';
+    const defaultDisabledValue = false;
+
+    const outlineLabel = 'Outlined'
+    const defaultOutlineValue = false;
+
+    const sizeLabel = 'Size';
+    const sizeOptions = {
+      small: 'sm',
+      medium: '',
+      large: 'lg'
+    }
+    const defaultSize = ''
+
+    const buttonWideLabel = 'Button Width';
+    const widthOptions = {
+      normal: '',
+      wide: 'btn-wide'
+    }
+    const defaultWidth = ''
+
+    const hasIconLabel = 'Has Icon'
+    const hasIconDefaultValue = false;
+
+    const iconAlignLabel = 'Icon Align';
+    const iconAlignOptions = {
+      right: 'iconRight',
+      left: 'iconLeft'
+    }
+    const iconAlignDefault = 'iconRight'
+
+    const isLoadingLabel = 'Is Loading';
+    const isLoadingDefault = false;
+
+    const disabledValue = boolean(disabledLabel, defaultDisabledValue);
+    const outlinedValue = boolean(outlineLabel, defaultOutlineValue);
+    const sizeValue = radios(sizeLabel,sizeOptions,defaultSize);
+    const widthValue = radios(buttonWideLabel,widthOptions,defaultWidth);
+    const hasIcon = boolean(hasIconLabel, hasIconDefaultValue);
+    const iconAlign = radios(iconAlignLabel, iconAlignOptions, iconAlignDefault);
+    const isLoading = boolean(isLoadingLabel, isLoadingDefault);
+
+    return (
+    <Fragment>
+      <Button
+      disabled={disabledValue}
+      outline={outlinedValue}
+      size={sizeValue}
+      className={widthValue}
+      hasIcon={hasIcon}
+      isLoading={isLoading}
+      >Continue</Button>
+    </Fragment>
+  )
+  })
+  .add("Button Link", () => {
+    const disabledLabel = 'Disabled';
+    const disabledDefaultValue = false;
+    const disabled = boolean(disabledLabel, disabledDefaultValue)
+
+    return (
+      <Fragment>
+        <Button type="link" disabled={disabled}>Learn More</Button>
+      </Fragment>
+    )
+  })
+
+  form.add("Checkbox", () => (
     <Fragment>
       <FormGroup>
         <Checkbox id="checkbox--1">I choose this option</Checkbox>
         <Checkbox id="checkbox--2">I choose this option</Checkbox>
-        <Checkbox id="checkbox--3">I choose this option</Checkbox>
-      </FormGroup>
-
-      <FormGroup>
-        <Checkbox size="large" color="green">I choose this option</Checkbox>
+        <Checkbox id="checkbox--3" color="green">I choose this option</Checkbox>
       </FormGroup>
     </Fragment>
   ))
-  .add("Feedback", () => (
-    <Fragment>
-      <FormGroup className="text-left">
-        <Input label="Input w/Form Text" required />
-        <FormText>Some helpful information about this field.</FormText>
-      </FormGroup>
+  .add("Feedback", () => {
 
-      <FormGroup className="text-left">
-        <Input label="Error State" invalid required />
-        <FormText invalid>Something went wrong here.</FormText>
-      </FormGroup>
+    const selectOptions = [{
+        value: "option--1",
+        label: "Option 1"
+      }, {
+        value: "option--2",
+        label: "Option 2"
+      }, {
+        value: "option--3",
+        label: "Option 3"
+      }
+    ]
 
-      <FormGroup className="text-left">
-        <Input label="Success State" valid required />
-      </FormGroup>
+    const stateOptions = {
+      normal: '',
+      error: 'invalid',
+      success: 'success'
+    }
+    const stateDefault = ''
 
-      <FormGroup className="text-left">
-        <Select
-          label="Select One"
-          required
-          invalid
-          options={[
-            {
-              value: "option--1",
-              label: "Option 1"
-            }, {
-              value: "option--2",
-              label: "Option 2"
-            }, {
-              value: "option--3",
-              label: "Option 3"
-            }
-          ]} />
-        <FormText invalid>Please select an option.</FormText>
-      </FormGroup>
+    const inputStateLabel = 'Input State'
+    const inputDefaultState = ''
+    const inputStateValue = radios(inputStateLabel,stateOptions,stateDefault)
 
-      <FormGroup className="text-left">
-        <Checkbox
-          id="checkbox--1"
-          invalid
-          messages={<FormText invalid>Something went wrong here.</FormText>}>
-          I choose this option
-        </Checkbox>
-      </FormGroup>
+    const selectStateLabel = 'Select State'
+    const selectDefaultState = ''
+    const selectStateValue = radios(selectStateLabel,stateOptions,stateDefault)
 
-      <FormGroup className="text-left">
+    const checkboxStateLabel = 'Checkbox State'
+    const checkboxDefaultState = ''
+    const checkboxStateValue = radios(checkboxStateLabel,stateOptions,stateDefault)
+
+    const radioStateLabel = 'Radio State'
+    const radioDefaultState = ''
+    const radioStateValue = radios(radioStateLabel,stateOptions,stateDefault)
+
+    return (
+      <Fragment>
+        <FormGroup className="text-left">
+          {(inputStateValue === 'invalid') ?
+          <Fragment>
+            <Input label="Input w/Form Text" required invalid/>
+            <FormText invalid>Something went wrong here.</FormText>
+          </Fragment>
+          : (inputStateValue === 'success') ?
+          <Fragment>
+            <Input label="Input w/Form Text" required valid/>
+            <FormText>Some helpful information about this field.</FormText>
+          </Fragment>
+          :
+          <Fragment>
+            <Input label="Input w/Form Text" required/>
+            <FormText>Some helpful information about this field.</FormText>
+          </Fragment>
+        }
+        </FormGroup>
+
+        <FormGroup className="text-left">
+        {(selectStateValue === 'invalid') ?
+          <Fragment>
+          <Select
+            label="Select One"
+            required
+            invalid
+            options={selectOptions} />
+          <FormText invalid>Please select an option.</FormText>
+          </Fragment>
+          : (selectStateValue === 'success') ?
+            <Fragment>
+            <Select
+              label="Select One"
+              required
+              valid
+              options={selectOptions} />
+            <FormText valid>Please select an option.</FormText>
+            </Fragment>
+          :
+          <Fragment>
+          <Select
+            label="Select One"
+            required
+            options={selectOptions} />
+          <FormText>Please select an option.</FormText>
+          </Fragment>
+        }
+        </FormGroup>
+
+        <FormGroup className="text-left">
+        <FormGroup className="text-left">
+          {checkboxStateValue === 'invalid' ?
+          <Checkbox
+            id="radio--1"
+            invalid
+            messages={<FormText invalid>Something went wrong here.</FormText>}>
+            I choose this option
+          </Checkbox>
+          : (checkboxStateValue === 'valid') ?
+            <Checkbox
+              id="radio--1"
+              valid
+              messages={<FormText invalid>Something went wrong here.</FormText>}>
+              I choose this option
+            </Checkbox>
+            :
+            <Checkbox
+              id="radio--1"
+              messages={<FormText invalid>Something went wrong here.</FormText>}>
+              I choose this option
+            </Checkbox>
+          }
+        </FormGroup>
+        </FormGroup>
+
+        <FormGroup className="text-left">
+        {radioStateValue === 'invalid' ?
         <Radio
           id="radio--1"
           invalid
           messages={<FormText invalid>Something went wrong here.</FormText>}>
           I choose this option
         </Radio>
-      </FormGroup>
-    </Fragment>
-  ))
+        : (radioStateValue === 'valid') ?
+          <Radio
+            id="radio--1"
+            valid
+            messages={<FormText invalid>Something went wrong here.</FormText>}>
+            I choose this option
+          </Radio>
+          :
+          <Radio
+            id="radio--1"
+            messages={<FormText invalid>Something went wrong here.</FormText>}>
+            I choose this option
+          </Radio>
+        }
+        </FormGroup>
+      </Fragment>
+    )
+  })
   .add("File Input", () => (
     <Fragment>
       <File />
@@ -278,3 +440,24 @@ storiesOf("Typography", module)
       <p>This is a normal paragraph. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. Brisket jowl sausage, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
     </Fragment>
   ))
+
+  storiesOf("Modal", module)
+    .addDecorator(CenterLayout)
+    .add("Modal", () => (
+      <Modal
+        isOpen={true}
+        headerProps={{
+          hideIcon: true
+        }}
+      >
+      <ModalHeader hasImage={true} align="center">
+        Modal Header
+      </ModalHeader>
+      <ModalBody>
+        Modal Body
+      </ModalBody>
+      <ModalFooter>
+        Modal Footer
+      </ModalFooter>
+      </Modal>
+    ))
