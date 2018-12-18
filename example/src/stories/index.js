@@ -41,7 +41,6 @@ const CenterLayout = (storyFn) => (
   </div>
 )
 
-const stories = storiesOf('Storybook Knobs', module);
 const alerts = storiesOf('Alert', module);
 const badge = storiesOf('Badge', module);
 const button = storiesOf('Button', module);
@@ -49,27 +48,12 @@ const form = storiesOf('Form', module);
 const logo = storiesOf('Logo', module);
 const typography = storiesOf('Typography', module);
 
-stories.addDecorator(withKnobs)
 alerts.addDecorator(withKnobs).addDecorator(CenterLayout)
 badge.addDecorator(withKnobs).addDecorator(CenterLayout)
 button.addDecorator(withKnobs).addDecorator(CenterLayout)
 form.addDecorator(withKnobs).addDecorator(CenterLayout)
 logo.addDecorator(withKnobs).addDecorator(CenterLayout)
 typography.addDecorator(withKnobs).addDecorator(CenterLayout)
-
-stories.add('with button', () => (
-  <Button disabled={boolean('Disabled', false)} >
-    {text('Label', 'Hello Storybook')}
-  </Button>
-))
-
-stories.add('as dynamic variables', () => {
-  const name = text('Name', 'Arunoda Susiripala');
-  const age = number('Age', 89);
-
-  const content = `I am ${name} and I'm ${age} years old.`;
-  return (<div>{content}</div>);
-});
 
   alerts.add("Default Alerts", () =>{
     const label = "Alert Type";
