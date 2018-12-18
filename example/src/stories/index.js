@@ -46,12 +46,16 @@ const alerts = storiesOf('Alert', module);
 const badge = storiesOf('Badge', module);
 const button = storiesOf('Button', module);
 const form = storiesOf('Form', module);
+const logo = storiesOf('Logo', module);
+const typography = storiesOf('Typography', module);
 
 stories.addDecorator(withKnobs)
 alerts.addDecorator(withKnobs).addDecorator(CenterLayout)
 badge.addDecorator(withKnobs).addDecorator(CenterLayout)
 button.addDecorator(withKnobs).addDecorator(CenterLayout)
 form.addDecorator(withKnobs).addDecorator(CenterLayout)
+logo.addDecorator(withKnobs).addDecorator(CenterLayout)
+typography.addDecorator(withKnobs).addDecorator(CenterLayout)
 
 stories.add('with button', () => (
   <Button disabled={boolean('Disabled', false)} >
@@ -400,46 +404,109 @@ stories.add('as dynamic variables', () => {
     </Fragment>
   ))
 
-storiesOf("Logo", module)
-  .addDecorator(CenterLayout)
-  .add("Balloon", () => <Logo type="balloon" style={{ width: "6rem" }} />)
-  .add("Wordmark", () => <Logo style={{ width: "10rem" }} />)
+  logo.add("Balloon", () => {
+    const logoLabel = 'Logos';
+    const logoOptions = {
+      balloon: 'balloon',
+      wordmark: 'wordmark'
+    }
+    const logoDefault = 'balloon'
+    const logoValue = radios(logoLabel,logoOptions,logoDefault)
 
-storiesOf("Typography", module)
-  .addDecorator(CenterLayout)
-  .add("Display Headings", () => (
-    <Fragment>
-      <h1 className="display-1">Display One</h1>
-      <h1 className="display-2">Display Two</h1>
-      <h1 className="display-3">Display Three</h1>
-      <h1 className="display-4">Display Four</h1>
-    </Fragment>
-  ))
-  .add("Headings", () => (
-    <Fragment>
-      <h1>Heading One</h1>
-      <h2>Heading Two</h2>
-      <h3>Heading Three</h3>
-      <h4>Heading Four</h4>
-      <h5>Heading Five</h5>
-      <h6>Heading Six</h6>
-    </Fragment>
-  ))
-  .add("Highlights", () => (
-    <Fragment>
-      <h1 className="display-3"><TextStyle highlight="full">Full Highlight</TextStyle></h1>
-      <h1><TextStyle highlight="full">Full Highlight</TextStyle></h1>
-      <h1><TextStyle highlight="underline">Underlined Highlight</TextStyle></h1>
-      <p><TextStyle highlight="underline">Underlined Highlight</TextStyle></p>
-    </Fragment>
-  ))
-  .add("Text", () => (
-    <Fragment>
-      <p className="lead">This is a lead paragraph. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. <TextStyle highlight="underline">Brisket jowl sausage</TextStyle>, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
+    return (
+        <Fragment>
+        {logoValue === 'balloon' ?
+          <Logo type="balloon" style={{ width: "6rem" }} />
+          : logoValue === 'wordmark' ?
+          <Logo type="wordmark" style={{ width: "10rem" }} />
+          : ''
+        }
+        </Fragment>
+      )
+    }
+  )
 
-      <p>This is a normal paragraph. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. Brisket jowl sausage, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
-    </Fragment>
-  ))
+  typography.add("Display Headings", () => {
+
+    const headingLabel = 'Display Heading Size'
+    const headingSizeOptions = {
+      display1: 'display-1',
+      display2: 'display-2',
+      display3: 'display-3',
+      display4: 'display-4'
+    }
+    const headingDefaultState = 'display-1'
+    const headingStateValue = select(headingLabel,headingSizeOptions,headingDefaultState)
+
+    return (
+      <Fragment>
+        <h1 className={headingStateValue}>Heading</h1>
+      </Fragment>
+    )
+  })
+  .add("Headings", () => {
+    const headingLabel = 'Display Headings'
+    const headingDefault = 'headingOne'
+    const headingOptions = {
+      headingOne: 'headingOne',
+      headingTwo: 'headingTwo',
+      headingThree: 'headingThree',
+      headingFour: 'headingFour',
+      headingFive: 'headingFive',
+      headingSix: 'headingSix'
+    }
+    const headingValue = select(headingLabel,headingOptions,headingDefault)
+
+    return (
+      <Fragment>
+        {headingValue === 'headingOne' ?
+          <h1>Heading One</h1>
+          : headingValue === 'headingTwo' ?
+          <h2>Heading Two</h2>
+          : headingValue === 'headingThree' ?
+          <h3>Heading Two</h3>
+          : headingValue === 'headingFour' ?
+          <h4>Heading Two</h4>
+          : headingValue === 'headingFive' ?
+          <h5>Heading Five</h5>
+          : headingValue === 'headingSix' ?
+          <h6>Heading Six</h6>
+          :
+          <h1>Heading One</h1>
+        }
+      </Fragment>
+    )
+  })
+  .add("Highlights", () => {
+    const highlightLabel = 'Highlight Type'
+    const highLightOptions = {
+      full: 'full',
+      underline: 'underline'
+    }
+    const highlightDefault = 'full'
+    const highlightValue = radios(highlightLabel,highLightOptions,highlightDefault)
+
+    return (
+      <Fragment>
+        <h1 className="display-3"><TextStyle highlight={highlightValue}>Highlight Text</TextStyle></h1>
+      </Fragment>
+    )
+  })
+  .add("Text", () => {
+    const textLabel = 'Text Type'
+    const textOptions = {
+      lead: 'lead',
+      normal: ''
+    }
+    const textDefault = 'lead'
+    const textValue = radios(textLabel,textOptions,textDefault)
+
+    return (
+      <Fragment>
+        <p className={textValue}>This is a paragraph. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. Brisket jowl sausage, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
+      </Fragment>
+    )
+  })
 
   storiesOf("Modal", module)
     .addDecorator(CenterLayout)
