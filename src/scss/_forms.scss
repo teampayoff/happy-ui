@@ -172,13 +172,10 @@
   font-weight: $font-weight-bold;
 }
 
-// .was-validated .form-control:valid,
-// .form-control.is-valid,
-// .was-validated .form-control:invalid,
-// .form-control.is-invalid {
-//   background-image: none !important;
-// }
 
+//=================================================
+//REMOVING CHECKS/X MARKS FOR VALID/INVALID SELECTS
+//=================================================
 select.was-validated .form-control:valid,
 select.form-control.is-valid,
 select.was-validated .form-control:invalid,
