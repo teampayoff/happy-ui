@@ -6,11 +6,13 @@
   "license": "MIT",
   "dependencies": {
     "@storybook/addon-links": "^4.1.0",
+    "babel-loader": "^8.0.5",
     "happy-ui": "../../happy-ui",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.1"
+    "react-scripts": "^1.1.1",
+    "reactstrap": "^7.0.2"
   },
   "scripts": {
     "start": "npm run storybook",
@@ -26,7 +28,6 @@
     "@storybook/addon-actions": "^4.1.1",
     "@storybook/addon-knobs": "^4.1.1",
     "@storybook/addons": "^4.1.1",
-    "@storybook/react": "^4.1.1",
-    "reactstrap": "^6.5.0"
+    "@storybook/react": "^4.1.1"
   }
 }

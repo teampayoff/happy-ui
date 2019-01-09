@@ -17,10 +17,10 @@
       position: relative;
       width: 1.8rem;
       height: 1.8rem;
-      box-shadow: none; 
+      box-shadow: none;
       background-color: #E5E7EB;
       left: -2.5rem;
-    } 
+    }
 
     &:after {
       width: 1.8rem;
@@ -170,4 +170,28 @@
 
 .invalid-feedback {
   font-weight: $font-weight-bold;
+}
+
+// .was-validated .form-control:valid,
+// .form-control.is-valid,
+// .was-validated .form-control:invalid,
+// .form-control.is-invalid {
+//   background-image: none !important;
+// }
+
+select.was-validated .form-control:valid,
+select.form-control.is-valid,
+select.was-validated .form-control:invalid,
+select.form-control.is-invalid {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23334161' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px,
+  url('') !important;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+  left: -2.125rem;
+}
+
+.custom-control {
+  padding-left: 2.125rem;
 }
