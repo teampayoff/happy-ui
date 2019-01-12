@@ -14,26 +14,43 @@
     line-height: 1.8rem;
 
     &:before {
-      position: relative;
       width: 1.8rem;
       height: 1.8rem;
       box-shadow: none;
       background-color: #E5E7EB;
-      left: -2.5rem;
     }
 
     &:after {
       width: 1.8rem;
       height: 1.8rem;
-      left: -2.5rem;
     }
   }
 
 }
 
+//aligning checkbox inside textCheck component
+.text-check {
+  .custom-control-label {
+    line-height: 1.8rem;
+
+    &:before {
+      position: relative;
+      left: -2.5rem;
+    }
+
+    &:after {
+      left: -2.5rem;
+    }
+  }
+}
+
 .custom-checkbox.green {
   .custom-control-input:checked ~ .custom-control-label::before {
     background-color: $green;
+  }
+  .custom-control-label::before {
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -191,4 +208,9 @@ select.form-control.is-invalid {
 
 .custom-control {
   padding-left: 2.125rem;
+}
+
+.was-validated .custom-control-input:invalid ~ .custom-control-label::before,
+å.custom-control-input.is-invalid ~ .custom-control-label::before {
+  border: none !important;
 }

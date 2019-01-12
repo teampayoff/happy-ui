@@ -178,7 +178,7 @@ typography.addDecorator(withKnobs).addDecorator(CenterLayout)
       <FormGroup>
         <Checkbox id="checkbox--1">I choose this option</Checkbox>
         <Checkbox id="checkbox--2">I choose this option</Checkbox>
-        <Checkbox id="checkbox--3" color="green">I choose this option</Checkbox>
+        <Checkbox id="checkbox--3" color="green" size="large" invalid>I choose this option</Checkbox>
       </FormGroup>
     </Fragment>
   ))
