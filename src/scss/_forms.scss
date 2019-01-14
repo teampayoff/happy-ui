@@ -28,7 +28,7 @@
 
 }
 
-//aligning checkbox inside textCheck component
+//textCheck component specific bootstrap overrides
 .text-check {
   .custom-control-label {
     line-height: 1.8rem;
@@ -41,6 +41,14 @@
     &:after {
       left: -2.5rem;
     }
+  }
+
+  .was-validated .form-control:valid,
+  .form-control.is-valid,
+  .was-validated .form-control:invalid,
+  .form-control.is-invalid {
+      background-image: none;
+      padding-right: 0;
   }
 }
 
