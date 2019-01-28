@@ -219,6 +219,21 @@ select.form-control.is-invalid {
 }
 
 .was-validated .custom-control-input:invalid ~ .custom-control-label::before,
-å.custom-control-input.is-invalid ~ .custom-control-label::before {
+.custom-control-input.is-invalid ~ .custom-control-label::before {
   border: none !important;
+}
+
+//input prefix
+.form-group {
+  position: relative;
+}
+
+.input-prefix {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.6rem;
+}
+
+p a {
+  text-decoration: underline;
 }

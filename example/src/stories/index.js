@@ -335,7 +335,7 @@ typography.addDecorator(withKnobs).addDecorator(CenterLayout)
       </FormGroup>
 
       <FormGroup>
-        <Input label="Currency w/Mask" type="currency" required />
+        <Input type="currency" required prefix="$" />
       </FormGroup>
 
       <FormGroup>
@@ -487,7 +487,7 @@ typography.addDecorator(withKnobs).addDecorator(CenterLayout)
 
     return (
       <Fragment>
-        <p className={textValue}>This is a paragraph. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. Brisket jowl sausage, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
+        <p className={textValue}>This is a <Link>paragraph</Link>. Salami prosciutto biltong short ribs fatback beef ribs beef kielbasa cow kevin meatball pork loin landjaeger pancetta. Shankle filet mignon t-bone kevin beef ribs. Strip steak swine beef ribs shoulder, pork chop brisket ground round. Brisket jowl sausage, tail tri-tip sirloin pig. Pork loin cupim kevin beef. Spare ribs strip steak turkey shank bresaola ground round, meatball corned beef.</p>
       </Fragment>
     )
   })

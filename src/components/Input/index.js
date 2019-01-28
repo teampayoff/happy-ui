@@ -22,6 +22,19 @@ class Input extends Component {
     this.input.focus()
   }
 
+  constructor() {
+    super();
+    this.inputprefix = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.props.prefix && this.inputprefix ) {
+      this.prefixWidth = this.inputprefix.current.clientWidth + 13;
+      this.inputPadding = this.prefixWidth +'px';
+      this.input.inputElement.style.paddingLeft = this.inputPadding;
+    }
+  }
+
   render() {
     const {
       children,
@@ -37,6 +50,7 @@ class Input extends Component {
       maskProps,
       onCardNumberChange,
       placeholder,
+      prefix,
       required,
       size,
       type,
@@ -57,14 +71,15 @@ class Input extends Component {
       currency: {
         guide: false,
         mask: numberMask({
+          prefix: '',
           allowDecimal: true,
           integerLimit: 8
         }),
-        placeholder: "$0.00"
+        placeholder: "0.00"
       },
       email: {
         guide: false,
-        mask: emailMask,
+        mask: false,
         maxLength: 100,
         placeholder: "name@website.com"
       },
@@ -79,7 +94,7 @@ class Input extends Component {
         placeholder: "___-__-____"
       },
       zip: {
-        guide: true,
+        guide: false,
         mask: [/\d/, /\d/, /\d/, /\d/, /\d/]
       }
     }
@@ -104,6 +119,9 @@ class Input extends Component {
       return (
         <Fragment>
           {inputLabel}
+          {prefix &&
+            <div className="input-prefix" ref={this.inputprefix}>{prefix}</div>
+          }
           <MaskedInput
             id={id}
             name={id}
@@ -114,6 +132,7 @@ class Input extends Component {
             maxLength={mask.maxLength}
             placeholder={placeholder || mask.placeholder}
             required={required}
+            prefix={prefix}
             ref={(input) => {this.input = input}}
             {...attributes} />
         </Fragment>
