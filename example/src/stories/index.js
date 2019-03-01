@@ -335,7 +335,7 @@ typography.addDecorator(withKnobs).addDecorator(CenterLayout)
       </FormGroup>
 
       <FormGroup>
-        <Input type="currency" required prefix="$" />
+        <Input type="currency" required />
       </FormGroup>
 
       <FormGroup>

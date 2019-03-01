@@ -63,7 +63,8 @@ class Input extends Component {
       size && "form-control-" + size,
       invalid && "is-invalid",
       valid && "is-valid",
-      className
+      className,
+      (type === 'currency') ? 'default-padding' : ''
     )
 
     // params for masked inputs
@@ -119,8 +120,8 @@ class Input extends Component {
       return (
         <Fragment>
           {inputLabel}
-          {prefix &&
-            <div className="input-prefix" ref={this.inputprefix}>{prefix}</div>
+          {(type === 'currency') &&
+            <div className="input-prefix" ref={this.inputprefix}>{(typeof prefix != 'string') ? '$' : prefix}</div>
           }
           <MaskedInput
             id={id}
