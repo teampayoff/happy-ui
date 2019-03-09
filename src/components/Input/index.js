@@ -29,9 +29,14 @@ class Input extends Component {
 
   componentDidMount() {
     if (this.props.prefix && this.inputprefix ) {
+      console.log('hello');
       this.prefixWidth = this.inputprefix.current.clientWidth + 13;
       this.inputPadding = this.prefixWidth +'px';
       this.input.inputElement.style.paddingLeft = this.inputPadding;
+    }
+    if (this.props.type === 'currency') {
+        this.topValue = this.input.inputElement.offsetTop + 15;
+        this.inputprefix.current.style.top = this.topValue + 'px';
     }
   }
 

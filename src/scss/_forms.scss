@@ -75,7 +75,7 @@
     }
   }
   .custom-select:focus {
-    box-shadow: inset 0 1px 1px rgba(0, 18, 57, 0.075), 0 0 0 0.2rem rgba(0, 178, 255, 0.25) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 18, 57, 0.075), 0 0 0 0.2rem rgba(0, 178, 255, 0.25);
   }
 }
 
@@ -237,7 +237,6 @@ select.form-control.is-invalid {
 
 .input-prefix {
   position: absolute;
-  bottom: 0.85rem;
   left: 0.6rem;
 }
 
