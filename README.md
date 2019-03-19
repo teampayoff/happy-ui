@@ -2,7 +2,7 @@
 
 > Shared UI components for building Happy Money products.
 
-## Installing to other projects
+## Installing as a dependency
 
 ```bash
 npm install --save git+ssh://git@stash.int.payoff.com:7999/fe/happy-ui.git
