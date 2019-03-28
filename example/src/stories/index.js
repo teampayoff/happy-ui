@@ -230,7 +230,7 @@ typography.addDecorator(withKnobs).addDecorator(CenterLayout)
           : (inputStateValue === 'success') ?
           <Fragment>
             <Input label="Input w/Form Text" required valid/>
-            <FormText>Some helpful information about this field.</FormText>
+            <FormText valid>Some helpful information about this field.</FormText>
           </Fragment>
           :
           <Fragment>

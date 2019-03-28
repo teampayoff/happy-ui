@@ -200,6 +200,11 @@
   font-weight: $font-weight-bold;
 }
 
+.valid-feedback,
+.custom-control-label.is-valid {
+  color: $black;
+}
+
 
 //=================================================
 //REMOVING CHECKS/X MARKS FOR VALID/INVALID SELECTS
