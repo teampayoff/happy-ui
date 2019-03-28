@@ -201,7 +201,7 @@
 }
 
 .valid-feedback,
-.custom-control-label.is-valid {
+.custom-control-label.is-valid ~ .custom-control-label {
   color: $black;
 }
 
