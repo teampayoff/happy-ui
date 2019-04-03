@@ -72,5 +72,33 @@ export const CommonLinks = {
   youtube: {
     title: "YouTube",
     href: "https://www.youtube.com/payoff/"
+  },
+  contactRelative: {
+    title: "Contact Us",
+    href: "/about/contact/"
+  },
+  noticeRelative: {
+    title: "Notice",
+    href: "/legal/privacy-notice/"
+  },
+  partnersRelative: {
+    title: "Lending Partners",
+    href: "/legal/lending-partners/"
+  },
+  payoffRelative: {
+    title: "Payoff",
+    href: "/"
+  },
+  privacyRelative: {
+    title: "Privacy Policy",
+    href: "/legal/privacy-policy/"
+  },
+  securityRelative: {
+    title: "Security",
+    href: "/legal/security/"
+  },
+  termsRelative: {
+    title: "Terms of Use",
+    href: "/legal/terms-of-use/"
   }
 }
