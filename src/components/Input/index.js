@@ -34,8 +34,11 @@ class Input extends Component {
       this.input.inputElement.style.paddingLeft = this.inputPadding;
     }
     if (this.props.type === 'currency') {
+        console.log('top value before adding 15 is: ',this.input.inputElement.offsetTop);
         this.topValue = this.input.inputElement.offsetTop + 15;
+        console.log('top value after adding 15 is: ',this.topValue);
         this.inputprefix.current.style.top = this.topValue + 'px';
+        console.log('top value is ',this.topValue);
     }
   }
 
