@@ -34,11 +34,13 @@ class Input extends Component {
       this.input.inputElement.style.paddingLeft = this.inputPadding;
     }
     if (this.props.type === 'currency') {
-        console.log('top value before adding 15 is: ',this.input.inputElement.offsetTop);
-        this.topValue = this.input.inputElement.offsetTop + 15;
-        console.log('top value after adding 15 is: ',this.topValue);
+        // gets the height of the input
+        this.inputHeight = this.input.inputElement.offsetHeight;
+        // gets offset of input element relative to container (it can sometimes be pushed down due to a label being present, so we need to calculate for that)
+        // then takes the offset value and adds it to the input height/2 to find the center
+        this.topValue = this.input.inputElement.offsetTop + (this.inputHeight/2);
+        // then adds the calculated center value as CSS top to the prefix
         this.inputprefix.current.style.top = this.topValue + 'px';
-        console.log('top value is ',this.topValue);
     }
   }
 

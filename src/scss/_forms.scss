@@ -244,6 +244,7 @@ select.form-control.is-invalid {
 .input-prefix {
   position: absolute;
   left: 0.6rem;
+  transform: translateY(-45%);
 }
 
 p a {
