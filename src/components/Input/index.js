@@ -112,6 +112,7 @@ class Input extends Component {
             guide={mask.guide}
             mask={mask.mask}
             maxLength={mask.maxLength}
+            type={mask.type}
             placeholder={placeholder || mask.placeholder}
             required={required}
             ref={(input) => {this.input = input}}
