@@ -22,6 +22,28 @@ class Input extends Component {
     this.input.focus()
   }
 
+  constructor() {
+    super();
+    this.inputprefix = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.props.prefix && this.inputprefix ) {
+      this.prefixWidth = this.inputprefix.current.clientWidth + 13;
+      this.inputPadding = this.prefixWidth +'px';
+      this.input.inputElement.style.paddingLeft = this.inputPadding;
+    }
+    if (this.props.type === 'currency') {
+        // gets the height of the input
+        this.inputHeight = this.input.inputElement.offsetHeight;
+        // gets offset of input element relative to container (it can sometimes be pushed down due to a label being present, so we need to calculate for that)
+        // then takes the offset value and adds it to the input height/2 to find the center
+        this.topValue = this.input.inputElement.offsetTop + (this.inputHeight/2);
+        // then adds the calculated center value as CSS top to the prefix
+        this.inputprefix.current.style.top = this.topValue + 'px';
+    }
+  }
+
   render() {
     const {
       children,
@@ -37,6 +59,7 @@ class Input extends Component {
       maskProps,
       onCardNumberChange,
       placeholder,
+      prefix,
       required,
       size,
       type,
@@ -49,7 +72,8 @@ class Input extends Component {
       size && "form-control-" + size,
       invalid && "is-invalid",
       valid && "is-valid",
-      className
+      className,
+      (type === 'currency') ? 'default-padding' : ''
     )
 
     // params for masked inputs
@@ -57,14 +81,15 @@ class Input extends Component {
       currency: {
         guide: false,
         mask: numberMask({
+          prefix: '',
           allowDecimal: true,
           integerLimit: 8
         }),
-        placeholder: "$0.00"
+        placeholder: "0.00"
       },
       email: {
         guide: false,
-        mask: emailMask,
+        mask: false,
         maxLength: 100,
         placeholder: "name@website.com"
       },
@@ -79,7 +104,7 @@ class Input extends Component {
         placeholder: "___-__-____"
       },
       zip: {
-        guide: true,
+        guide: false,
         mask: [/\d/, /\d/, /\d/, /\d/, /\d/]
       }
     }
@@ -104,6 +129,9 @@ class Input extends Component {
       return (
         <Fragment>
           {inputLabel}
+          {(type === 'currency') &&
+            <div className="input-prefix" ref={this.inputprefix}>{(typeof prefix != 'string') ? '$' : prefix}</div>
+          }
           <MaskedInput
             id={id}
             name={id}
@@ -115,6 +143,7 @@ class Input extends Component {
             type={mask.type}
             placeholder={placeholder || mask.placeholder}
             required={required}
+            prefix={prefix}
             ref={(input) => {this.input = input}}
             {...attributes} />
         </Fragment>
