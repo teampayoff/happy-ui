@@ -28,6 +28,7 @@ const Link = props => {
 
   const link = CommonLinks[type]
   const target = blank ? "_blank" : "_self"
+  const finalHref = link ? link.href : href
 
   return (
     <a
@@ -36,7 +37,7 @@ const Link = props => {
       rel={blank ? "noopener noreferrer" : "nofollow"}
       onClick={onClick}
       tabIndex="-1"
-      target={href && target}
+      target={finalHref && target}
       {...attributes}>{children || link && link.title}</a>
   )
 }
