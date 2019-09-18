@@ -14,11 +14,13 @@ const FormText = props => {
     children,
     className,
     invalid,
+    valid,
     ...attributes
   } = props
 
   const classes = cx(
     invalid ? "invalid-feedback" : "form-text",
+    valid ? "valid-feedback" : "form-text",
     className
   )
 
