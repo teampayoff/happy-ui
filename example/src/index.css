@@ -4,9 +4,3 @@ body,
 #app-root {
   min-height: 100vh;
 }
-
-/* space out stacked items */
-#app-root .container > :nth-child(n) {
-  display: block;
-  margin: 1.5rem auto;
-}

@@ -3,6 +3,12 @@
 @import "node_modules/bootstrap/scss/mixins/breakpoints";
 @import "mixins";
 
+.ho-heading,
+.ho-paragraph,
+.ho-anchor {
+  margin: 0;
+}
+
 // Headings
 
 h1, .h1,
