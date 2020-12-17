@@ -83,7 +83,7 @@ export const CommonLinks = {
   },
   partnersRelative: {
     title: "Lending Partners",
-    href: "/lending-partners/"
+    href: "/legal/lending-partners/"
   },
   payoffRelative: {
     title: "Payoff",
@@ -91,14 +91,14 @@ export const CommonLinks = {
   },
   privacyRelative: {
     title: "Privacy Policy",
-    href: "/privacy-policy/"
+    href: "/legal/privacy-policy/"
   },
   securityRelative: {
     title: "Security",
-    href: "/security/"
+    href: "/legal/security/"
   },
   termsRelative: {
     title: "Terms of Use",
-    href: "/terms-of-use/"
+    href: "/legal/terms-of-use/"
   }
 }
