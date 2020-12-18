@@ -1,6 +1,6 @@
 {
-  "name": "happy-ui",
-  "version": "1.4.5",
+  "name": "@happymoneydesign/happy-ui",
+  "version": "1.4.9",
   "description": "Shared UI components for building Happy Money products.",
   "contributors": [
     {
